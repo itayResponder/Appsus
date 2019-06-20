@@ -1,10 +1,8 @@
 'use strict';
-
-import mainHeader from './pages/main-app/main-header.cmp.js';
+import mainHeader from './cmps/main-app/main-header.cmp.js';
 import myRoutes from '../js/services/routes.js';
 
 const myRouter = new VueRouter({routes: myRoutes})
-
 
 new Vue({
     el: '#Appsus',
@@ -14,10 +12,8 @@ new Vue({
         <router-view></router-view>
     </section>
 `,
-
     components: {
         mainHeader
     },
-
     router: myRouter
 })

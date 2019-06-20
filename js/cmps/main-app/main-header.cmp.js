@@ -1,5 +1,4 @@
 export default {
-    name: 'mainAppHeader',
     template: `
         <header>
             <nav class="nav-bar">
