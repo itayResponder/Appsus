@@ -11,8 +11,9 @@ export default {
     <section class="email-app">
         <email-filter @set-filter="setFilter"></email-filter>
         <div class="container">
+        <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
         <side-nav></side-nav>
-        <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
+        <!-- <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list> -->
         </div>
         
         <!-- <email-filter @set-filter="setFilter"></email-filter> -->
@@ -34,6 +35,8 @@ export default {
             .then(emails => {
                 this.emails = emails
             })
+        this.$router.push({path: '/miss-email/inbox'});    
+        console.log(this.$route.params);
     },
 
     computed: {
@@ -48,7 +51,6 @@ export default {
         }
     },
 
-
     components: {
         emailList,
         sideNav,
@@ -62,6 +64,15 @@ export default {
         setFilter(filter) {
             console.log(filter)
             this.filter = filter;
+        }
+    },
+
+    watch: {
+        '$route.params.path': {
+            handler(val) {
+                console.log(val);
+            },
+            deep: true
         }
     }
 }
