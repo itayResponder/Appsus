@@ -5,9 +5,14 @@ export default {
     <section class="home">
         <h1>Home Sweet Home</h1>
         <div class= "apps-previews">
-            <div class="mail-preview"></div>
-            <div class="notes-preview"></div>
-            <h1>TEST DIV</h1>
+            <img src="/img/mail-home-prev.jpg"/>
+            <div class="img-container"></div>
+            <p>Miss Email</p>
+        </div>
+        <div class= "apps-previews">
+            <img src="/img/notes-prev.png"/>
+            <div class="img-container"></div>
+            <p>Miss Notes</p>
         </div>
     </section>
     `

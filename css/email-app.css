@@ -2,7 +2,7 @@
 
 .email-preview-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     cursor: pointer;
 }
 
