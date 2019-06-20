@@ -64,14 +64,5 @@ export default {
         setFilter(filter) {
             this.filter = filter;
         }
-    },
-
-    watch: {
-        '$route.params.path': {
-            handler(val) {
-                console.log(val);
-            },
-            deep: true
-        }
     }
 }
