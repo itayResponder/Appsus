@@ -43,8 +43,10 @@ export default {
                 else if (currFilter === 'false') currFilter = false
                 if (currFilter === 'all') currFilter = email.message.isRead
                 console.log(email.message.isRead)
-                return email.message.subject.includes(this.filter.txt) &&
-                        email.message.isRead === currFilter
+                return (email.message.subject.includes(this.filter.txt) ||
+                email.message.desc.includes(this.filter.txt) ||
+                email.from.name.includes(this.filter.txt)) &&        
+                email.message.isRead === currFilter
             })
         }
     },
