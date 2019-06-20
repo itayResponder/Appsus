@@ -1,5 +1,5 @@
 import { storageService } from '../../../storage.service.js'
-import { utilService } from '../../../util.service.js';
+// import { utilService } from '../../../util.service.js';
 
 
 const EMAIL_KEY = 'email';
@@ -20,13 +20,11 @@ function query() {
         storageService.store(EMAIL_KEY, email)
     }
     emailDB = email;
-    console.log(emailDB)
     return Promise.resolve(emailDB);
 }
 
 
 function getById(id) {
-    console.log('service id', id)
     if (!emailDB.length) emailDB = storageService.load(EMAIL_KEY)
     return Promise.resolve(emailDB.find(email => email.id === id))
 }
@@ -34,9 +32,8 @@ function getById(id) {
 function emailRead(id) {
     getById(id)
     .then(email => {
-        console.log(email.massage.isRead)
         email.massage.isRead = true
-        console.log(email.massage.isRead)
+        storageService.store(EMAIL_KEY, emailDB)
     })
 }
 
