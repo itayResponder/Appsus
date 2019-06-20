@@ -3,6 +3,12 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    line-height: 60px;
+    transition: .3s
+}
+
+.email-preview-container:hover {
+    background-color: rgba(199, 199, 199, 0.466);
 }
 
 .container {
@@ -14,10 +20,12 @@
     font-weight: bold;
 }
 
-.email-preview-container:hover {
-    background-color: rgba(199, 199, 199, 0.466);
+.message-container .decription {
+    color: rgb(141, 141, 141)
 }
 
-.massage-container .decription {
-    color: rgb(131, 131, 131)
+
+.email-preview-container h2 {
+    width: 220px;
 }
+

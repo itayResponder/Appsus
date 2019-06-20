@@ -11,6 +11,11 @@ export default {
     template: `
     <section class="email-details" v-if="email">
     <h1>{{email}}</h1>
+    <h1>{{email.message.subject}}</h1>
+    <p>{{email.from.name}}</p>
+    <p><{{email.from.email}}></p>
+    <p>{{email.message.desc}}</p>
+
     </section>
     `,
 

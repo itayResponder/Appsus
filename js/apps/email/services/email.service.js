@@ -1,6 +1,5 @@
 import { storageService } from '../../../storage.service.js'
-import { utilService } from '../../../util.service.js';
-
+// import { utilService } from '../../../util.service.js';
 
 const EMAIL_KEY = 'email';
 
@@ -20,13 +19,11 @@ function query() {
         storageService.store(EMAIL_KEY, email)
     }
     emailDB = email;
-    console.log(emailDB)
     return Promise.resolve(emailDB);
 }
 
 
 function getById(id) {
-    console.log('service id', id)
     if (!emailDB.length) emailDB = storageService.load(EMAIL_KEY)
     return Promise.resolve(emailDB.find(email => email.id === id))
 }
@@ -34,9 +31,8 @@ function getById(id) {
 function emailRead(id) {
     getById(id)
     .then(email => {
-        console.log(email.massage.isRead)
-        email.massage.isRead = true
-        console.log(email.massage.isRead)
+        email.message.isRead = true
+        storageService.store(EMAIL_KEY, emailDB)
     })
 }
 
@@ -47,10 +43,11 @@ function getEmailData() {
             'id': 'OXeMGbwNskc',
             'from': {
                 'name': 'itay',
-                'thumbnail': ''
+                'thumbnail': '',
+                'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
-            'massage': {
+            'message': {
                 'subject': 'My problems',
                 'desc': 'working with oriel',
                 'isRead': false
@@ -60,11 +57,12 @@ function getEmailData() {
         {
             'id': 'OXeMGqwNskc',
             'from': {
-                'name': 'itay',
-                'thumbnail': ''
+                'name': 'jonas',
+                'thumbnail': '',
+                'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
-            'massage': {
+            'message': {
                 'subject': 'My problems',
                 'desc': 'working with oriel',
                 'isRead': false
@@ -73,11 +71,12 @@ function getEmailData() {
         {
             'id': 'OXeMG8vNskc',
             'from': {
-                'name': 'itay',
-                'thumbnail': ''
+                'name': 'tal',
+                'thumbnail': '',
+                'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
-            'massage': {
+            'message': {
                 'subject': 'My problems',
                 'desc': 'working with oriel',
                 'isRead': false
@@ -87,10 +86,11 @@ function getEmailData() {
             'id': 'OXeaG8wNskc',
             'from': {
                 'name': 'itay',
-                'thumbnail': ''
+                'thumbnail': '',
+                'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
-            'massage': {
+            'message': {
                 'subject': 'My problems',
                 'desc': 'working with oriel',
                 'isRead': true
