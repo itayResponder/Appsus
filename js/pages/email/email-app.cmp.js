@@ -38,7 +38,7 @@ export default {
 
     components: {
         emailList,
-        emailDetails,
-        emailFilter
+        // emailDetails,
+        // emailFilter
     },
 }

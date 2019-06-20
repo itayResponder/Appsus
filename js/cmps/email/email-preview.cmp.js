@@ -1,13 +1,10 @@
+export default {}
+
 {/* <email-preview>
 o Has an email prop
 o Renders the subject
 o Gives visual indication for read/unread (i.e.: bold/unbold ; closed or
 open envelop) 
-
-
-
-
-
 
 // import { bookService } from '../services/book.service.js'
 
