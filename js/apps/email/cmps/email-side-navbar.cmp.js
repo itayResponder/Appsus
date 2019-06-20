@@ -9,7 +9,6 @@ export default {
                     <li><router-link to="/miss-email/trash">Trash</router-link></li> 
                 </ul>
             </nav>
-            <h1>email-side-bar</h1>
         </div>    
     `,
 }
