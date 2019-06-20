@@ -3,7 +3,7 @@
 // o Renders the subject
 // o Gives visual indication for read/unread (i.e.: bold/unbold ; closed or
 // open envelop) 
-import { emailService } from '../../services/email/email.service.js'
+import { emailService } from '../../email/services/email.service.js'
 
 
 export default {
