@@ -22,23 +22,34 @@ export default {
     },
 
     created() {
-        // V an array of books, on created – get the books from the service.
         emailService.query()
-            .then(emails => this.emails = emails)
+            .then(emails => {
+                this.emails = emails
+                console.log(emails)
+            })
     },
 
     computed: {
-        booksForDisplay() {
-            if (!this.filter) return this.books;
-            // return this.books.filter(book => book.title.includes(this.filter.txt) &&
-            //     book.listPrice.amount > this.filter.fromNum &&
-            //     book.listPrice.amount < this.filter.toNum)
+        emailsForDisplay() {
+            if (!this.filter) return this.emails;
+            // return this.emails.filter(email => email.title.includes(this.filter.txt) &&
+            //     email.listPrice.amount > this.filter.fromNum &&
+            //     email.listPrice.amount < this.filter.toNum)
         }
     },
+
 
     components: {
         emailList,
         // emailDetails,
         // emailFilter
     },
+    methods: {
+        onSelected(emailId) {
+            this.selectedEmail = this.emails.find(email => email.id === emailId)
+        },
+        setFilter(filter) {
+            this.filter = filter;
+        }
+    }
 }

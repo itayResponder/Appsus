@@ -7,7 +7,7 @@ export default {
     <section>
             <h1>emails</h1>
             <section class="emails-list">
-                <email-preview v-for="currentemail in emails" v-bind:email="currentemail">
+                <email-preview v-for="currentemail,idx in emails" :key="idx" v-bind:email="currentemail">
                 </email-preview>
             </section>
         </section>

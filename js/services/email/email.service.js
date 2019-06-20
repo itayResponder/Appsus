@@ -12,7 +12,7 @@ export const emailService = {
 
 
 function query() {
-    const email = storageService.load(EMAIL_KEY);
+    let email = storageService.load(EMAIL_KEY);
     if (!email) {
         email = getEmailData();
         storageService.store(EMAIL_KEY, email)
