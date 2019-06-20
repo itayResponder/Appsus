@@ -1,0 +1,7 @@
+.apps-previews {
+    /* display: flex; */
+    height: 500px;
+    background-repeat: no-repeat;
+    background-image: url("../img/mail-home-prev.jpg");
+    background-image: url("../img/notes-prev.png");
+}
