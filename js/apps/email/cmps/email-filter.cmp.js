@@ -9,8 +9,8 @@ export default {
                 <span>Search Email</span><input type="text" v-model="filterBy.txt" @input="emitFilter" />
                 <select v-model="filterBy.isRead" @change="emitFilter">
                     <option value=''>All</option>
-                    <option value=true>Read</option>
-                    <option value=false>unread</option>
+                    <option value= 'true'>Read</option>
+                    <option value= 'false'>unread</option>
                 </select> 
             </div>
         </section>

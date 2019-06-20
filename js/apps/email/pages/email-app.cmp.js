@@ -40,12 +40,15 @@ export default {
         emailsForDisplay() {
             if (!this.filter) return this.emails
             console.log(this.filter.isRead)
-            return this.emails.filter(email => 
-                email.message.subject.includes(this.filter.txt) &&
-                email.message.isRead === this.filter.isRead)
-                // (email => email.message.desc.includes(this.filter.txt)) ||
-                // (email => email.message.desc.includes(this.filter.txt)))
-        }
+            return this.emails.filter(email => {
+                console.log(email.message.isRead)
+                if (this.filter.isRead === 'true') this.filter.isRead = true
+                if (this.filter.isRead === 'false') this.filter.isRead = false
+                if (this.filter.isRead === '') this.filter.isRead = email.message.isRead
+                
+                return email.message.subject.includes(this.filter.txt) &&
+                email.message.isRead === this.filter.isRead})
+                        }
     },
 
 
