@@ -39,16 +39,16 @@ export default {
     computed: {
         emailsForDisplay() {
             if (!this.filter) return this.emails
-            console.log(this.filter.isRead)
             return this.emails.filter(email => {
+                let currFilter = this.filter.isRead
+                if (currFilter === 'true') currFilter = true
+                else if (currFilter === 'false') currFilter = false
+                if (currFilter === 'all') currFilter = email.message.isRead
                 console.log(email.message.isRead)
-                if (this.filter.isRead === 'true') this.filter.isRead = true
-                if (this.filter.isRead === 'false') this.filter.isRead = false
-                if (this.filter.isRead === '') this.filter.isRead = email.message.isRead
-                
                 return email.message.subject.includes(this.filter.txt) &&
-                email.message.isRead === this.filter.isRead})
-                        }
+                        email.message.isRead === currFilter
+            })
+        }
     },
 
 
@@ -61,9 +61,10 @@ export default {
     methods: {
         onSelected(emailId) {
             this.selectedEmail = this.emails.find(email => email.id === emailId)
+            this.filter = null;
         },
+        
         setFilter(filter) {
-            console.log(filter)
             this.filter = filter;
         }
     }

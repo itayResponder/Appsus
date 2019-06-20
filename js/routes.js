@@ -7,7 +7,11 @@ import emailDetails from './apps/email/pages/email-details.cmp.js';
 
 export default [
     { path: '/', component: homePage },
-    { path: '/miss-email', component: emailApp },
+    { path: '/miss-email', component: emailApp
+    // , [
+        // path:'/sent' : emailApp,
+    // ]
+},
     { path: '/miss-email/:emailId', component: emailDetails },
     // { path: '/emails', component: emailApp },
     // { path: '/addemail', component: addemail },

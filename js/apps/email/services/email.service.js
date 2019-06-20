@@ -8,13 +8,14 @@ var emailDB = [];
 export const emailService = {
     query,
     getById,
-    emailRead
+    emailRead,
+    deleteEmail
 }
 
 
 function query() {
     let email = storageService.load(EMAIL_KEY);
-    if (!email) {
+    if (email.length === 0) {
         email = getEmailData();
         storageService.store(EMAIL_KEY, email)
     }
@@ -36,6 +37,13 @@ function emailRead(id) {
     })
 }
 
+
+function deleteEmail(id) {
+    console.log(id)
+    const emailIdx = emailDB.findIndex(email => email.id === id)
+    emailDB.splice(emailIdx,1)
+    storageService.store(EMAIL_KEY, emailDB)
+}
 
 function getEmailData() {
     return [

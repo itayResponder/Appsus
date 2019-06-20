@@ -8,7 +8,7 @@ export default {
             <div class="filters-container">
                 <input class="txt-search" type="text" v-model="filterBy.txt" @input="emitFilter" placeholder="Search Email"/>
                 <select v-model="filterBy.isRead" @change="emitFilter">
-                    <option value=''>All</option>
+                    <option value='all'>All</option>
                     <option value= 'true'>Read</option>
                     <option value= 'false'>unread</option>
                 </select> 
@@ -20,7 +20,7 @@ export default {
         return {
             filterBy: {
                 txt: '',
-                isRead: ''
+                isRead: 'all'
             }
         }
     },

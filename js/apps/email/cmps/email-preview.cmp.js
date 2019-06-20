@@ -12,7 +12,8 @@ export default {
             <h2>{{email.from.name}}</h2>
             <div class="message-container">
                 <span :class="{bold: !email.message.isRead}">{{email.message.subject}}</span> 
-                <span class="decription">{{email.message.desc}}</span> 
+                <span class="decription">{{email.message.desc}}</span>
+                <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg'/>
             </div>
             <span>{{email.date}}</span>
         </section>
@@ -24,6 +25,9 @@ export default {
         goToMail() {
             this.$router.push({ path: '/miss-email/' + this.email.id })
             emailService.emailRead(this.email.id)
+        },
+        deleteEmail() {
+            emailService.deleteEmail(this.email.id)
         }
-    }
+    },
 }
