@@ -2,31 +2,34 @@
 // • Allow filtering by text and Read / Unread
 
 
-// export default {
-//     template: `
-//         <section class="book-filter">
-//         <h3>books Filter</h3>
-//         <div className="filters-container">
-//         <span>By Title</span><input type="text" v-model="filterBy.txt" @input="emitFilter" /> 
-//         <span>Min Price</span><input type="number" v-model="filterBy.fromNum" @input="emitFilter" /> 
-//         <span>Max price</span><input type="number" v-model="filterBy.toNum" @input="emitFilter" /> 
-//         </div>
-//             </section>
-//             `,
+export default {
+    template: `
+        <section class="book-filter">
+            <h3>books Filter</h3>
+            <div class="filters-container">
+                <span>Search Email</span><input type="text" v-model="filterBy.txt" @input="emitFilter" />
+                <select @change="emitFilter">
+                    <option value="all">All</option>
+                    <option value="true">Read</option>
+                    <option value="false">unread</option>
+                </select> 
+            </div>
+        </section>
+            `,
 
-//     data() {
-//         return {
-//             filterBy: {
-//                 txt: '',
-//                 fromNum: -Infinity,
-//                 toNum: Infinity,
-//             }
-//         }
-//     },
+    data() {
+        return {
+            filterBy: {
+                txt: '',
+                read: ''
+            }
+        }
+    },
 
-//     methods: {
-//         emitFilter() {
-//             this.$emit('set-filter', this.filterBy);
-//         }
-//     }
-// }
+    methods: {
+        emitFilter() {
+            console.log('emit fil')
+            this.$emit('set-filter', this.filterBy);
+        }
+    }
+}

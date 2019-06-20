@@ -48,7 +48,7 @@ function getEmailData() {
             },
             'date': Date.now(),
             'message': {
-                'subject': 'My problems',
+                'subject': 'how to get beautiful life',
                 'desc': 'working with oriel',
                 'isRead': false
             }
@@ -63,7 +63,7 @@ function getEmailData() {
             },
             'date': Date.now(),
             'message': {
-                'subject': 'My problems',
+                'subject': 'Lets make gums',
                 'desc': 'working with oriel',
                 'isRead': false
             }
@@ -91,7 +91,7 @@ function getEmailData() {
             },
             'date': Date.now(),
             'message': {
-                'subject': 'My problems',
+                'subject': 'you can get out from murder',
                 'desc': 'working with oriel',
                 'isRead': true
             }

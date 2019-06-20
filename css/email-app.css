@@ -5,11 +5,13 @@
     justify-content: space-between;
     cursor: pointer;
     line-height: 60px;
-    transition: .3s
+    transition: .3s;
+    box-shadow: 0px 0px 1px #0000003b
 }
 
 .email-preview-container:hover {
     background-color: rgba(199, 199, 199, 0.466);
+    box-shadow: 0 0px 5px black;
 }
 
 .bold{

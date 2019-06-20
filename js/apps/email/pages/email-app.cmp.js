@@ -3,12 +3,13 @@
 // • EmailApp Gets emails from service (asynch)t= <teas></teas>
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
+import emailFilter from '../cmps/email-filter.cmp.js'
 
 export default {
     template: `
     <section class="email-app">
         <h1>Email App</h1>
-        <!-- <email-filter @set-filter="setFilter"></email-filter> -->
+        <email-filter @set-filter="setFilter"></email-filter>
         <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
         <!-- <email-details v-if="selectedemail" :email="selectedemail" @close="selectedemail=null"></email-details>  -->
     </section>
@@ -16,7 +17,9 @@ export default {
 
     data() {
         return {
-            emails: ''
+            emails: '',
+            filter: null
+
         }
     },
 
@@ -24,16 +27,17 @@ export default {
         emailService.query()
             .then(emails => {
                 this.emails = emails
-                console.log(emails)
             })
     },
 
     computed: {
         emailsForDisplay() {
-            if (!this.filter) return this.emails;
-            // return this.emails.filter(email => email.title.includes(this.filter.txt) &&
-            //     email.listPrice.amount > this.filter.fromNum &&
-            //     email.listPrice.amount < this.filter.toNum)
+            if (!this.filter) return this.emails
+            console.log(this.filter.txt)
+            return this.emails.filter(email => (email.message.subject.includes(this.filter.txt))&&
+            email.message.isRead === this.filter.isRead)
+                // (email => email.message.desc.includes(this.filter.txt)) ||
+                // (email => email.message.desc.includes(this.filter.txt)))
         }
     },
 
@@ -41,7 +45,7 @@ export default {
     components: {
         emailList,
         // emailDetails,
-        // emailFilter
+        emailFilter
     },
     methods: {
         onSelected(emailId) {
