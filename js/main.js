@@ -6,8 +6,8 @@ import myRoutes from '../js/services/routes.js';
 const myRouter = new VueRouter({routes: myRoutes})
 
 
-var app = new Vue({
-    el: '#app',
+new Vue({
+    el: '#Appsus',
     template: ` 
     <section>
         <main-header></main-header>
