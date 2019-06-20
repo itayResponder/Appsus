@@ -25,7 +25,6 @@ export default {
         console.log(emailId)
         emailService.getById(emailId)
             .then(email => {
-                console.log(email)
                 this.email = email})
     },
 

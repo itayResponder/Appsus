@@ -13,7 +13,8 @@ export default {
         </section>
     `,
     props: ['emails'],
-    
+    created() {
+    },
     components: {
         emailPreview
     }
