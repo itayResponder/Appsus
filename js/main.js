@@ -1,20 +1,22 @@
+'use strict';
 
-import appHeader from './cmps/app-header.cmp.js'
-import routes from './routes.js'
+import mainHeader from './pages/main-app/main-header.cmp.js';
+import myRoutes from '../js/services/routes.js';
+
+const myRouter = new VueRouter({routes: myRoutes})
 
 
-
-new Vue({
+var app = new Vue({
     el: '#app',
-
-    template: ` <section>
-                    <app-header></app-header>
-                    <router-view></router-view>
-                </section>
+    template: ` 
+    <section>
+        <main-header></main-header>
+        <router-view></router-view>
+    </section>
 `,
 
     components: {
-        appHeader
+        mainHeader
     },
 
     router: myRouter

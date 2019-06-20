@@ -1,4 +1,5 @@
 export default {
+    name: 'mainAppHeader',
     template: `
         <header>
             <nav class="nav-bar">
@@ -9,6 +10,7 @@ export default {
                     <li><router-link to="/miss-book">Miss Book</router-link></li>
                 </ul>
             </nav>
+            <h1>test</h1>
         </header>    
     `,
 }
