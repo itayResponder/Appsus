@@ -1,18 +1,20 @@
-import bookPreview from './book-preview.cmp.js';
+// import bookPreview from './book-preview.cmp.js';
 
-export default {
-    template: `
-    <section>
-            <h1>Books</h1>
-            <section class="books-list">
-                <book-preview v-for="currentbook in books" v-bind:book="currentbook">
-                </book-preview>
-            </section>
-        </section>
-    `,
-    props: ['books'],
+{/* <email-list> renders a list of <email-preview> pass down an email prop */}
+
+// export default {
+//     template: `
+//     <section>
+//             <h1>Books</h1>
+//             <section class="books-list">
+//                 <book-preview v-for="currentbook in books" v-bind:book="currentbook">
+//                 </book-preview>
+//             </section>
+//         </section>
+//     `,
+//     props: ['books'],
     
-    components: {
-        bookPreview
-    }
-}
+//     components: {
+//         bookPreview
+//     }
+// }
