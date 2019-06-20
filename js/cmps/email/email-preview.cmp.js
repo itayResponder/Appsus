@@ -9,8 +9,8 @@ export default {
         <section class="email-preview-container" @click.stop = 'goToMail'>
             <h2>{{email.from.name}}</h2>
             <div class="massage-container">
-                <span class="subject">{{email.massage.subject}}</span> 
-                <span>{{email.massage.desc}}</span> 
+                <span :class={{email.}}>{{email.massage.subject}}</span> 
+                <span class="decription">{{email.massage.desc}}</span> 
             </div>
             <span>{{email.date}}</span>
         </section>
