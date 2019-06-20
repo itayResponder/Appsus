@@ -48,8 +48,10 @@ function getEmailData() {
             'date': Date.now(),
             'massage': {
                 'subject': 'My problems',
-                'desc': 'working with oriel'
+                'desc': 'working with oriel',
+                'isRead': false
             }
+
         },
         {
             'id': 'OXeMG8wNskc',
