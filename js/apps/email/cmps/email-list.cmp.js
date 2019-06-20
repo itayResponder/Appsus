@@ -1,5 +1,4 @@
 import emailPreview from './email-preview.cmp.js';
-
 {/* <email-list> renders a list of <email-preview> pass down an email prop */}
 
 export default {

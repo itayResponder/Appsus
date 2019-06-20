@@ -1,6 +1,6 @@
 'use strict';
-import mainHeader from './cmps/main-app/main-header.cmp.js';
-import myRoutes from '../js/services/routes.js';
+import mainHeader from './apps/main/cmps/main-header.cmp.js';
+import myRoutes from './routes.js';
 
 const myRouter = new VueRouter({routes: myRoutes})
 
