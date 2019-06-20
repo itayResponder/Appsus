@@ -1,5 +1,4 @@
 
-
 .email-preview-container{
     display: flex;
     justify-content: space-between;
@@ -12,6 +11,11 @@
 .email-preview-container:hover {
     background-color: rgba(199, 199, 199, 0.466);
     box-shadow: 0 0px 5px black;
+}
+
+.container {
+    padding: 0;
+    display: flex;
 }
 
 .bold{

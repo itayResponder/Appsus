@@ -4,13 +4,21 @@
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js'
+import sideNav from '../cmps/email-side-navbar.cmp.js';
 
 export default {
     template: `
     <section class="email-app">
+        
         <h1>Email App</h1>
         <email-filter @set-filter="setFilter"></email-filter>
+        <div class="container">
+        <side-nav></side-nav>
         <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
+        </div>
+        
+        <!-- <email-filter @set-filter="setFilter"></email-filter> -->
+        
         <!-- <email-details v-if="selectedemail" :email="selectedemail" @close="selectedemail=null"></email-details>  -->
     </section>
     `,
@@ -44,6 +52,7 @@ export default {
 
     components: {
         emailList,
+        sideNav,
         // emailDetails,
         emailFilter
     },

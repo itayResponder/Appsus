@@ -9,7 +9,7 @@ export default {
                     <li><router-link to="/miss-book">Miss Book</router-link></li>
                 </ul>
             </nav>
-            <h1>main-header</h1>
+            <h1>app-main-header</h1>
         </header>    
     `,
 }
