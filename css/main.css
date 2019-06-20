@@ -3,10 +3,15 @@
 @import url("/css/email-app.css");
 @import url("/css/side-nav-bar.css");
 
+@font-face {
+    font-family: IbmplFont;
+    src: url(/fonts/IBMPlexSans-Regular.ttf);
+}
+
 html,body {
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif;
+    font-family: "IbmplFont";
     background-image: url("https://storage.googleapis.com/igeeksblog/wp-content/uploads/2019/02/Best-Mail-App-Alternatives-for-iPhone-and-iPad.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
