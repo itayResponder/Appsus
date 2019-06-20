@@ -1,35 +1,26 @@
-
-
 //  <email-preview>
 // o Has an email prop
 // o Renders the subject
 // o Gives visual indication for read/unread (i.e.: bold/unbold ; closed or
 // open envelop) 
 
-// import { emailService } from '../services/email.service.js'
-
 export default {
-    props: ['email'],
-    // <router-link :to="emailUrl" class="email-list">
-    // </router-link>
     template: `
-    <!-- <div @click.stop ="checkemail" class="email-list"> -->
-    <section class="email-preview-container">
-        <h2>{{email.from.name}}</h2>
-        <h4>{{email.massage.subject}}</h4> 
-        <h4>{{email.massage.desc}}</h4> 
-    </section>
-    `,
+        <section class="email-preview-container" @click.stop = 'goToMail'>
+            <h2>{{email.from.name}}</h2>
+            <div class="massage-container">
+                <span class="subject">{{email.massage.subject}}</span> 
+                <span>{{email.massage.desc}}</span> 
+            </div>
+            <span>{{email.date}}</span>
+        </section>
+        `,
+
+    props: ['email'],
+
+    methods: {
+        goToMail() {
+            this.$router.push({ path: '/miss-email/' + this.email.id })
+        }
+    }
 }
-    // computed: {
-    //     emailUrl() {
-    //         return '/email-store/' + this.email.id
-    //     },  
-    // },
-//     methods: {
-//         checkemail() {
-//             console.log('succeed')
-//             emailService.addemailIfNew(this.email)
-//         }
-//     }
-// }

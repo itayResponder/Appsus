@@ -7,7 +7,8 @@ const EMAIL_KEY = 'email';
 var emailDB = [];
 
 export const emailService = {
-    query
+    query,
+    getById
 }
 
 
@@ -22,6 +23,12 @@ function query() {
     return Promise.resolve(emailDB);
 }
 
+
+function getById(id) {
+    console.log('service id', id)
+    query()
+    return Promise.resolve(emailDB.find(email => email.id === id))
+}
 /* email containes:
 id
 from
@@ -35,10 +42,10 @@ function getEmailData() {
         {
             'id': 'OXeMG8wNskc',
             'from': {
-                'name':'itay',
+                'name': 'itay',
                 'thumbnail': ''
             },
-            'Date': Date.now(),
+            'date': Date.now(),
             'massage': {
                 'subject': 'My problems',
                 'desc': 'working with oriel'
@@ -47,10 +54,10 @@ function getEmailData() {
         {
             'id': 'OXeMG8wNskc',
             'from': {
-                'name':'itay',
+                'name': 'itay',
                 'thumbnail': ''
             },
-            'Date': Date.now(),
+            'date': Date.now(),
             'massage': {
                 'subject': 'My problems',
                 'desc': 'working with oriel'
@@ -59,10 +66,10 @@ function getEmailData() {
         {
             'id': 'OXeMG8wNskc',
             'from': {
-                'name':'itay',
+                'name': 'itay',
                 'thumbnail': ''
             },
-            'Date': Date.now(),
+            'date': Date.now(),
             'massage': {
                 'subject': 'My problems',
                 'desc': 'working with oriel'
@@ -71,10 +78,10 @@ function getEmailData() {
         {
             'id': 'OXeMG8wNskc',
             'from': {
-                'name':'itay',
+                'name': 'itay',
                 'thumbnail': ''
             },
-            'Date': Date.now(),
+            'date': Date.now(),
             'massage': {
                 'subject': 'My problems',
                 'desc': 'working with oriel'

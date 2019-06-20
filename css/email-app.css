@@ -1,0 +1,15 @@
+
+
+.email-preview-container{
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.massage-container .subject{
+    font-weight: bold;
+}
+
+.email-preview-container:hover {
+    background-color: rgba(199, 199, 199, 0.466);
+}

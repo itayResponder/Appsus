@@ -1,13 +1,13 @@
 import homePage from '../pages/homepage.cmp.js';
 import emailApp from '../pages/email/email-app.cmp.js';
 // import aboutCmp from './pages/about.cmp.js';
-// import bookDetails from './pages/book-details.cmp.js';
-// import addBook from './pages/book-add.cmp.js';
+import emailDetails from '../pages/email-details.cmp.js';
+// import addemail from './pages/email-add.cmp.js';
 
 export default [
     { path: '/', component: homePage },
     { path: '/miss-email', component: emailApp },
-    // { path: '/books', component: bookApp },
-    // { path: '/book/:bookId', component: bookDetails },
-    // { path: '/addBook', component: addBook },
+    // { path: '/emails', component: emailApp },
+    { path: '/miss-email/:emailId', component: emailDetails },
+    // { path: '/addemail', component: addemail },
 ]
