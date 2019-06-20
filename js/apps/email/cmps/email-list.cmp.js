@@ -5,8 +5,6 @@ import sideNav from '../cmps/email-side-navbar.cmp.js';
 export default {
     template: `
     <section>
-            <h1>emails</h1>
-            
             <section class="emails-list">
                 <email-preview v-for="currentemail,idx in emails" :key="idx" v-bind:email="currentemail">
                 </email-preview>
