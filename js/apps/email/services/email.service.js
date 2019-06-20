@@ -15,7 +15,7 @@ export const emailService = {
 
 function query() {
     let email = storageService.load(EMAIL_KEY);
-    if (email.length === 0) {
+    if (!email || email.length === 0) {
         email = getEmailData();
         storageService.store(EMAIL_KEY, email)
     }
