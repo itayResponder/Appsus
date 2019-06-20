@@ -1,9 +1,11 @@
-@import url("/css/nav-bar.css");
+@import url("/css/top-nav-bar.css");
 @import url("/css/home-page.css");
 @import url("/css/email-app.css");
+@import url("/css/side-nav-bar.css");
+
 html,body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 h1,h2,h3,h4,h5,h6 {

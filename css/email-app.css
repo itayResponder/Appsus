@@ -1,9 +1,13 @@
 
-
 .email-preview-container{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+}
+
+.container {
+    padding: 0;
+    display: flex;
 }
 
 .bold{

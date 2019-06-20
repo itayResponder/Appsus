@@ -3,13 +3,20 @@
 // • EmailApp Gets emails from service (asynch)t= <teas></teas>
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
+import sideNav from '../cmps/email-side-navbar.cmp.js';
 
 export default {
     template: `
     <section class="email-app">
+        
         <h1>Email App</h1>
+        <div class="container">
+            <side-nav></side-nav>
+            <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
+        </div>
+        
         <!-- <email-filter @set-filter="setFilter"></email-filter> -->
-        <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
+        
         <!-- <email-details v-if="selectedemail" :email="selectedemail" @close="selectedemail=null"></email-details>  -->
     </section>
     `,
@@ -40,6 +47,7 @@ export default {
 
     components: {
         emailList,
+        sideNav,
         // emailDetails,
         // emailFilter
     },
