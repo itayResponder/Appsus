@@ -7,6 +7,9 @@ html,body {
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
+    background-image: url("https://storage.googleapis.com/igeeksblog/wp-content/uploads/2019/02/Best-Mail-App-Alternatives-for-iPhone-and-iPad.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1,h2,h3,h4,h5,h6 {

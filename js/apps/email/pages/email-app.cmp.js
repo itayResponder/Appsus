@@ -11,8 +11,8 @@ export default {
         
         <h1>Email App</h1>
         <div class="container">
-            <side-nav></side-nav>
-            <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
+        <side-nav></side-nav>
+        <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list>
         </div>
         
         <!-- <email-filter @set-filter="setFilter"></email-filter> -->
