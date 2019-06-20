@@ -11,14 +11,9 @@ export default {
     <section class="email-app">
         <email-filter @set-filter="setFilter"></email-filter>
         <div class="container">
-        <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
-        <side-nav></side-nav>
-        <!-- <email-list :emails="emailsForDisplay" @selected="onSelected"></email-list> -->
+            <side-nav></side-nav>
+            <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
         </div>
-        
-        <!-- <email-filter @set-filter="setFilter"></email-filter> -->
-        
-        <!-- <email-details v-if="selectedemail" :email="selectedemail" @close="selectedemail=null"></email-details>  -->
     </section>
     `,
 
