@@ -31,7 +31,6 @@ export default {
                 this.emails = emails
             })
         this.$router.push({path: '/miss-email/inbox'});    
-        console.log(this.$route.params);
     },
 
     computed: {
@@ -42,7 +41,6 @@ export default {
                 if (currFilter === 'true') currFilter = true
                 else if (currFilter === 'false') currFilter = false
                 if (currFilter === 'all') currFilter = email.message.isRead
-                console.log(email.message.isRead)
                 return (email.message.subject.includes(this.filter.txt) ||
                 email.message.desc.includes(this.filter.txt) ||
                 email.from.name.includes(this.filter.txt)) &&        

@@ -39,7 +39,6 @@ function emailRead(id) {
 
 
 function deleteEmail(id) {
-    console.log(id)
     const emailIdx = emailDB.findIndex(email => email.id === id)
     emailDB.splice(emailIdx,1)
     storageService.store(EMAIL_KEY, emailDB)
