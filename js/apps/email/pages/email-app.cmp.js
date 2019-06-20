@@ -1,9 +1,8 @@
 // •
 // • <email-app>
 // • EmailApp Gets emails from service (asynch)t= <teas></teas>
-
-import { emailService } from '../../services/email/email.service.js'
-import emailList from '../../cmps/email/email-list.cmp.js'
+import { emailService } from '../services/email.service.js';
+import emailList from '../cmps/email-list.cmp.js';
 
 export default {
     template: `

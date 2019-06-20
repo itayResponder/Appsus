@@ -3,7 +3,7 @@
 // • show the entire email
 // • allow deleting an email (using a service)
 
-import { emailService } from '../services/email/email.service.js'
+import { emailService } from '../services/email.service.js';
 
 export default {
 

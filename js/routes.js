@@ -1,6 +1,7 @@
-import homePage from '../pages/homepage.cmp.js';
-import emailApp from '../pages/email/email-app.cmp.js';
-import emailDetails from '../pages/email-details.cmp.js';
+
+import homePage from './apps/main/pages/homepage.cmp.js';
+import emailApp from './apps/email/pages/email-app.cmp.js';
+import emailDetails from './apps/email/pages/email-details.cmp.js';
 // import aboutCmp from './pages/about.cmp.js';
 // import addemail from './pages/email-add.cmp.js';
 
