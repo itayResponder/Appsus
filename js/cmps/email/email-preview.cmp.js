@@ -15,8 +15,7 @@ export default {
     template: `
     <!-- <div @click.stop ="checkemail" class="email-list"> -->
     <section class="email-preview-container">
-    <h1>email-preview</h1>
-         <h2>{{email.from.name}}</h2>
+        <h2>{{email.from.name}}</h2>
         <h4>{{email.massage.subject}}</h4> 
         <h4>{{email.massage.desc}}</h4> 
     </section>
