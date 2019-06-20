@@ -5,13 +5,12 @@
 export default {
     template: `
         <section class="book-filter">
-            <h3>books Filter</h3>
             <div class="filters-container">
                 <span>Search Email</span><input type="text" v-model="filterBy.txt" @input="emitFilter" />
-                <select @change="emitFilter">
-                    <option value="all">All</option>
-                    <option value="true">Read</option>
-                    <option value="false">unread</option>
+                <select v-model="filterBy.isRead" @change="emitFilter">
+                    <option value=''>All</option>
+                    <option value=true>Read</option>
+                    <option value=false>unread</option>
                 </select> 
             </div>
         </section>
@@ -21,7 +20,7 @@ export default {
         return {
             filterBy: {
                 txt: '',
-                read: ''
+                isRead: ''
             }
         }
     },

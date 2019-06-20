@@ -41,9 +41,10 @@ export default {
     computed: {
         emailsForDisplay() {
             if (!this.filter) return this.emails
-            console.log(this.filter.txt)
-            return this.emails.filter(email => (email.message.subject.includes(this.filter.txt))&&
-            email.message.isRead === this.filter.isRead)
+            console.log(this.filter.isRead)
+            return this.emails.filter(email => 
+                email.message.subject.includes(this.filter.txt) &&
+                email.message.isRead === this.filter.isRead)
                 // (email => email.message.desc.includes(this.filter.txt)) ||
                 // (email => email.message.desc.includes(this.filter.txt)))
         }
@@ -61,6 +62,7 @@ export default {
             this.selectedEmail = this.emails.find(email => email.id === emailId)
         },
         setFilter(filter) {
+            console.log(filter)
             this.filter = filter;
         }
     }
