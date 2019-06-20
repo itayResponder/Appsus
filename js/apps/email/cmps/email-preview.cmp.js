@@ -10,10 +10,9 @@ export default {
     template: `
         <section class="email-preview-container" @click.stop = 'goToMail'>
             <h2>{{email.from.name}}</h2>
-            <div class="massage-container">
-                <span :class="{bold: !email.massage.isRead}">{{email.massage.subject}}</span> 
-                <span class="decription">{{email.massage.desc}}</span> 
-                test: {{email.massage.isRead}}
+            <div class="message-container">
+                <span :class="{bold: !email.message.isRead}">{{email.message.subject}}</span> 
+                <span class="decription">{{email.message.desc}}</span> 
             </div>
             <span>{{email.date}}</span>
         </section>
