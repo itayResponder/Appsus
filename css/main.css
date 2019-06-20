@@ -12,9 +12,9 @@ html,body {
     margin: 0px;
     padding: 0px;
     font-family: "IbmplFont";
-    background-image: url("https://storage.googleapis.com/igeeksblog/wp-content/uploads/2019/02/Best-Mail-App-Alternatives-for-iPhone-and-iPad.jpg");
+    /* background-image: url("https://storage.googleapis.com/igeeksblog/wp-content/uploads/2019/02/Best-Mail-App-Alternatives-for-iPhone-and-iPad.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     text-align: center;
 }
 
