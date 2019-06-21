@@ -6,18 +6,18 @@ export default {
 
     template: `
     <section class="compose-modal">
-    <button class="btn-compose" @click="compose">Compose</button>
-    <div class="my-form" v-show="isActivated">
+    <div class="my-form" v-show="isShown">
         <form @submit.prevent="sendEmail">
-            <input type="text" v-model="email.to" rows="3" max-rows="6"/>
-            <input type="text" v-model="email.subject"/>
-            <textarea v-model="email.msg"></textarea>
+            <input type="text" v-model="email.to" placeholder="To"/>
+            <input type="text" v-model="email.subject" placeholder="Subject"/>
+            <textarea v-model="email.msg" rows="3" max-rows="6"></textarea>
             <!-- <button type="submit" @click="send">Send</button> -->
         </form>
     </div>
     </section>
 
     `,
+    props: ['isShown'],
     data() {
         return {
             email: {
@@ -26,14 +26,10 @@ export default {
                 msg: '',
                 date: ''
             },
-            isActivated: false
         }
     },
 
     methods: {
-        compose() {
-            this.isActivated = !this.isActivated;
-        },
 
         sendEmail() {
             this.date = Date.now();

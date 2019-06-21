@@ -11,19 +11,20 @@ export default {
     template: `
         <section class="email-app">
             <email-filter @set-filter="setFilter"></email-filter>
+            <button class="btn-compose" @click="isActivated">Compose</button>
             <div class="container">
-                <email-compose></email-compose>
                 <side-nav></side-nav>
-            <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
-        </div>
+                <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
+            </div>
+            <email-compose :isShown="this.isShown"></email-compose>
     </section>
     `,
 
     data() {
         return {
             emails: '',
-            filter: null
-
+            filter: null,
+            isShown: false
         }
     },
 
@@ -65,6 +66,15 @@ export default {
         
         setFilter(filter) {
             this.filter = filter;
+        },
+
+        setShow() {
+            return this.isShown;
+        },
+
+        isActivated () {
+            this.isShown = !this.isShown;
+            
         }
     }
 }
