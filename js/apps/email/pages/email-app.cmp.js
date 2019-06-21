@@ -5,13 +5,15 @@ import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js'
 import sideNav from '../cmps/email-side-navbar.cmp.js';
+import emailCompose from '../cmps/email-compose.cmp.js';
 
 export default {
     template: `
-    <section class="email-app">
-        <email-filter @set-filter="setFilter"></email-filter>
-        <div class="container">
-            <side-nav></side-nav>
+        <section class="email-app">
+            <email-filter @set-filter="setFilter"></email-filter>
+            <div class="container">
+                <email-compose></email-compose>
+                <side-nav></side-nav>
             <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
         </div>
     </section>
@@ -52,7 +54,7 @@ export default {
     components: {
         emailList,
         sideNav,
-        // emailDetails,
+        emailCompose,
         emailFilter
     },
     methods: {
