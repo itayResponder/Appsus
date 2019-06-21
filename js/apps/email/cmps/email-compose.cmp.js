@@ -11,7 +11,7 @@ export default {
             <input type="text" v-model="email.to" placeholder="To"/>
             <input type="text" v-model="email.subject" placeholder="Subject"/>
             <textarea v-model="email.msg" rows="3" max-rows="6"></textarea>
-            <!-- <button type="submit" @click="send">Send</button> -->
+            <button type="submit" @click="send">Send</button>
         </form>
     </div>
     </section>
