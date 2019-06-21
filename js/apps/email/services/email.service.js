@@ -8,7 +8,9 @@ export const emailService = {
     query,
     getById,
     emailRead,
-    deleteEmail
+    deleteEmail,
+    changeReadStatus,
+    countUnread
 }
 
 
@@ -36,13 +38,21 @@ function emailRead(id) {
     })
 }
 
-
 function deleteEmail(id) {
     const emailIdx = emailDB.findIndex(email => email.id === id)
     emailDB.splice(emailIdx,1)
     storageService.store(EMAIL_KEY, emailDB)
 }
 
+function changeReadStatus(id) {
+    const email = emailDB.find(email => email.id === id)
+    email.message.isRead = !email.message.isRead
+    storageService.store(EMAIL_KEY, emailDB)
+} 
+
+function countUnread() {
+    return emailDB.filter(email => email.message.isRead === false).length
+}
 function getEmailData() {
     return [
         {

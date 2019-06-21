@@ -13,9 +13,10 @@ export default {
             <div class="message-container">
                 <span :class="{bold: !email.message.isRead}">{{email.message.subject}}</span> 
                 <span class="decription">{{email.message.desc}}</span>
-                <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg'/>
             </div>
             <span>{{email.date}}</span>
+            <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg' alt="Delete mail"/>
+            <img @click.stop='changeReadorUnread' src='../../../../svg/message.svg'/>
         </section>
         `,
 
@@ -28,6 +29,9 @@ export default {
         },
         deleteEmail() {
             emailService.deleteEmail(this.email.id)
+        },
+        changeReadorUnread() {
+            emailService.changeReadStatus(this.email.id)
         }
     },
 }

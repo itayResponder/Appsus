@@ -17,6 +17,11 @@
     box-shadow: 0 0px 5px black;
 }
 
+.email-preview-container img{
+    align-self: center;
+height: 24px;
+}
+
 .container {
     padding: 0;
     display: flex;
