@@ -1,5 +1,4 @@
 import emailPreview from './email-preview.cmp.js';
-import sideNav from '../cmps/email-side-navbar.cmp.js';
 {/* <email-list> renders a list of <email-preview> pass down an email prop */}
 
 export default {
@@ -16,6 +15,5 @@ export default {
     },
     components: {
         emailPreview,
-        sideNav
     }
 }

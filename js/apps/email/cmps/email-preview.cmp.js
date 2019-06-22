@@ -21,7 +21,6 @@ export default {
         `,
 
     props: ['email'],
-
     methods: {
         goToMail() {
             this.$router.push({ path: '/miss-email/' + this.email.id })
@@ -32,6 +31,6 @@ export default {
         },
         changeReadorUnread() {
             emailService.changeReadStatus(this.email.id)
-        }
+        },
     },
 }

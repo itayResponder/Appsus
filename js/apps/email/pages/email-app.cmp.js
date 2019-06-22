@@ -4,8 +4,9 @@
 import { emailService } from '../services/email.service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js'
-import sideNav from '../cmps/email-side-navbar.cmp.js';
+import emailSideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
+import emailDetails from '../pages/email-details.cmp.js';
 
 export default {
     template: `
@@ -13,8 +14,8 @@ export default {
             <email-filter @set-filter="setFilter"></email-filter>
             <button class="btn-compose" @click="isActivated">Compose</button>
             <div class="container">
-                <side-nav></side-nav>
-                <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
+                <email-side-nav :unReadCounter="this.unReadCounter"></email-side-nav>
+                <router-view :emails="emailsForDisplay" @click.native="updateCounter"></router-view>
             </div>
             <email-compose :isShown="this.isShown"></email-compose>
     </section>
@@ -24,7 +25,8 @@ export default {
         return {
             emails: '',
             filter: null,
-            isShown: false
+            isShown: false,
+            unReadCounter: 0,
         }
     },
 
@@ -33,7 +35,13 @@ export default {
             .then(emails => {
                 this.emails = emails
             })
-        this.$router.push({path: '/miss-email/inbox'});    
+        this.$router.push({path: '/miss-email/inbox'});
+    },
+
+    watch: {
+        unReadCounter() {
+            console.log('the Counter has changed!!');
+        }
     },
 
     computed: {
@@ -49,20 +57,26 @@ export default {
                 email.from.name.includes(this.filter.txt)) &&        
                 email.message.isRead === currFilter
             })
+        },
+        updateCounter() {
+            this.unReadCounter = emailService.countUnread();
+            console.log('email-app-count',this.unReadCounter);
         }
     },
-
     components: {
         emailList,
-        sideNav,
+        emailSideNav,
         emailCompose,
-        emailFilter
+        emailFilter,
+        emailDetails
     },
     methods: {
         onSelected(emailId) {
+            console.log('aui')
             this.selectedEmail = this.emails.find(email => email.id === emailId)
-            eventBus.$emit(SHOW_MSG,
-                { txt: 'Welcome to the team', type: 'success' });
+            // eventBus.$emit(SHOW_MSG,
+            //     { txt: 'Welcome to the team', type: 'success' });
+            // this.displayUnreadMailsCount()
             this.filter = null;
         },
         
@@ -70,13 +84,8 @@ export default {
             this.filter = filter;
         },
 
-        // setShow() {
-        //     return this.isShown;
-        // },
-
         isActivated () {
             this.isShown = !this.isShown;
-            
         }
     }
 }
