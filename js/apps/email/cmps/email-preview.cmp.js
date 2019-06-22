@@ -31,8 +31,7 @@ export default {
             date: moment(this.email.date).format('LT')
         }
     },
-
-
+    
     methods: {
         goToMail() {
             this.$router.push({ path: '/miss-email/' + this.email.id })

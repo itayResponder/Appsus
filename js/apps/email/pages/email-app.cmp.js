@@ -14,8 +14,8 @@ export default {
             <email-filter @set-filter="setFilter"></email-filter>
             <button class="btn-compose" @click="isActivated">Compose</button>
             <div class="container">
-                <email-side-nav :unReadCounter="this.unReadCounter"></email-side-nav>
-                <router-view :emails="emailsForDisplay" @click.native="updateCounter"></router-view>
+                <email-side-nav></email-side-nav>
+                <router-view :emails="emailsForDisplay"></router-view>
             </div>
             <email-compose :isShown="this.isShown"></email-compose>
     </section>
