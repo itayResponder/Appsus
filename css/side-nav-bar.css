@@ -1,4 +1,4 @@
-.sidenav-bar {
+/* .sidenav-bar {
     display: flex;
 }
 
@@ -11,14 +11,44 @@
 }
 
 .sidenav-bar li a:hover {
-    transition: 0.9s;
+    transition: 0.3s;
     background-color: #111;
 }
 
 .sidenav-bar li a {
-    display: flex;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+} */
+
+.container > :first-child {
+    height: -webkit-fill-available;
+    background-color:#040729;
+
+}
+
+.btn-compose {
+    position: fixed;
+    box-shadow: 0 0 4px 0px black;
+    left: 40px;
+    top: 167px;
+}
+
+.sidenav-bar ul {
+    padding: 0;
+}
+
+.sidenav-bar a {
+    display: flow-root;
+    text-decoration: none;
+    color: azure;
+    font-weight: bold;
+}
+
+.sidenav-bar li:first-child {
+margin-top: 100px;
+}
+.sidenav-bar li {
+list-style-type: none;
 }

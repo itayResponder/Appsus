@@ -8,7 +8,7 @@
 
 .email-preview-container{
     display: flex;
-    justify-content: space-between;
+    text-align: left;
     cursor: pointer;
     line-height: 60px;
     transition: .3s;
@@ -41,17 +41,26 @@ height: 24px;
 
 .email-preview-container h2 {
     width: 220px;
+    padding-left: 20px;
+}
+
+.massage-content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.email-preview-container .right-side {
+
 }
 
 .txt-search {
-    padding: 5px 10px;
     border: 1px solid #b7b7b7;
     border-radius: 4px;
     font: normal 20px/normal "IbmplFont", cursive, sans-serif;
     color: rgba(0,142,198,1);
     background: rgba(252,252,252,0.8);
     box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
-    text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     margin-bottom: 30px;
 }
@@ -88,3 +97,9 @@ padding: 30px;
     width: 150px;
     margin: 50px;
 }
+    
+    .filters-container {
+        background-color: #020313;
+        line-height: 100px;
+    }
+    

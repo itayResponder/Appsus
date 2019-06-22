@@ -4,7 +4,7 @@
 
 export default {
     template: `
-        <section class="book-filter">
+        <section class="email-filter">
             <div class="filters-container">
                 <input class="txt-search" type="text" v-model="filterBy.txt" @input="emitFilter" placeholder="Search Email"/>
                 <select v-model="filterBy.isRead" @change="emitFilter">
