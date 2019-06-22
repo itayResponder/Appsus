@@ -6,12 +6,15 @@ import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js'
 import sideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
+import emailSort from '../cmps/email.sort.js'
 
 export default {
     template: `
         <section class="email-app">
             <email-filter @set-filter="setFilter"></email-filter>
+            <email-sort></email-sort>
             <button class="btn-compose" @click="isActivated">Compose</button>
+            
             <div class="container">
                 <side-nav></side-nav>
                 <router-view :emails="emailsForDisplay" @selected="onSelected"></router-view>
@@ -56,7 +59,8 @@ export default {
         emailList,
         sideNav,
         emailCompose,
-        emailFilter
+        emailFilter,
+        emailSort
     },
     methods: {
         onSelected(emailId) {
