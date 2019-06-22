@@ -4,7 +4,6 @@
 // • allow deleting an email (using a service)
 
 import { emailService } from '../services/email.service.js';
-import sideNav from '../cmps/email-side-navbar.cmp.js';
 export default {
 
     // • Show entire details
@@ -17,7 +16,6 @@ export default {
     <p>{{email.message.desc}}</p>
     </section>
     `,
-
     data() {
         return {
             email: null
@@ -30,8 +28,4 @@ export default {
             .then(email => {
                 this.email = email})
     },
-    components: {
-        sideNav,
-    }
-
 }

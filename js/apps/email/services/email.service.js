@@ -52,6 +52,7 @@ function changeReadStatus(id) {
 } 
 
 function countUnread() {
+    console.log('email-service-count',emailDB.filter(email => email.message.isRead === false).length);
     return emailDB.filter(email => email.message.isRead === false).length
 }
 

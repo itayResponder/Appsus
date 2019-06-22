@@ -43,6 +43,6 @@ export default {
         },
         changeReadorUnread() {
             emailService.changeReadStatus(this.email.id)
-        }
+        },
     },
 }
