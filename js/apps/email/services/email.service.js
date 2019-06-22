@@ -1,7 +1,7 @@
 import { storageService } from '../../../storage.service.js'
+import { utilService } from '../../../util.service.js'
 
 const EMAIL_KEY = 'email';
-
 var emailDB = [];
 export const emailService = {
     query,
@@ -9,7 +9,8 @@ export const emailService = {
     emailRead,
     deleteEmail,
     changeReadStatus,
-    countUnread
+    countUnread,
+    sortEmails
 }
 
 
@@ -53,6 +54,14 @@ function countUnread() {
     console.log('email-service-count',emailDB.filter(email => email.message.isRead === false).length);
     return emailDB.filter(email => email.message.isRead === false).length
 }
+
+function sortEmails(condition) {
+    console.log(condition)
+    if (condition === 'date') utilService.sortByDate(emailDB)
+    if (condition==='name') utilService.sortByTitle(emailDB)
+}
+
+
 function getEmailData() {
     return [
         {

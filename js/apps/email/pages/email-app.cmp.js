@@ -6,12 +6,14 @@ import emailList from '../cmps/email-list.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailSideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
+import emailSort from '../cmps/email.sort.js'
 import emailDetails from '../pages/email-details.cmp.js';
 
 export default {
     template: `
         <section class="email-app">
             <email-filter @set-filter="setFilter"></email-filter>
+            <email-sort></email-sort>
             <button class="btn-compose" @click="isActivated">Compose</button>
             <div class="container">
                 <email-side-nav></email-side-nav>  
@@ -68,6 +70,7 @@ export default {
         emailSideNav,
         emailCompose,
         emailFilter,
+        emailSort,
         emailDetails
     },
     methods: {
