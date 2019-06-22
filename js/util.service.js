@@ -39,7 +39,6 @@ export const utilService = {
     sortByTitle
 }
 
-
 function getRandChar() {
     var LETTERS = 'abcdefghijklmnopqrstuvwxyz';
     var randIndex = parseInt(Math.random() * LETTERS.length)

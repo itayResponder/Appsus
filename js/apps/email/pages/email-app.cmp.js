@@ -19,7 +19,7 @@ export default {
                 <email-side-nav></email-side-nav>  
                 <router-view :emails="emailsForDisplay"></router-view>
             </div>
-            <email-compose :isShown="this.isShown"></email-compose>
+            <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
     </section>
     `,
 
@@ -40,12 +40,6 @@ export default {
         this.$router.push({path: '/miss-email/inbox'});
     },
 
-    watch: {
-        unReadCounter() {
-            console.log('the Counter has changed!!');
-        }
-    },
-
     computed: {
         emailsForDisplay() {
             if (!this.filter) return this.emails
@@ -60,10 +54,6 @@ export default {
                 email.message.isRead === currFilter
             })
         },
-        updateCounter() {
-            this.unReadCounter = emailService.countUnread();
-            console.log('email-app-count',this.unReadCounter);
-        }
     },
     components: {
         emailList,
