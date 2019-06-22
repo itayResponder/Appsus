@@ -1,7 +1,6 @@
 import unread from '../cmps/email-status.js'
 
 export default {
-    props: ['unReadCounter'],
     template: `
         <div>
             <nav class="sidenav-bar">

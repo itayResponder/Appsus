@@ -3,7 +3,7 @@
 import { emailService } from '../services/email.service.js'
 
 export default {
-    template:`<span>{{ unRead }}</span>`,
+    template:`<span :unRead="checkUnread" v-if="unRead">{{ unRead }}</span>`,
 
     data() {
         return {
@@ -11,7 +11,13 @@ export default {
         }
     },
 
+    methods: {
+        checkUnread() {
+            this.unRead = emailService.countUnread();  
+            console.log('email-status',this.unRead);  
+        }
+    },
     mounted() {
-        this.unRead = emailService.countUnread()
+        this.unRead = emailService.countUnread();
     },
 }

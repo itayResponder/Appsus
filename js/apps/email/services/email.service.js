@@ -3,7 +3,6 @@ import { utilService } from '../../../util.service.js'
 
 const EMAIL_KEY = 'email';
 var emailDB = [];
-
 export const emailService = {
     query,
     getById,
