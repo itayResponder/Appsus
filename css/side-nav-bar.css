@@ -29,7 +29,7 @@
 }
 
 .btn-compose {
-    position: fixed;
+    position: absolute;
     box-shadow: 0 0 4px 0px black;
     left: 40px;
     top: 167px;

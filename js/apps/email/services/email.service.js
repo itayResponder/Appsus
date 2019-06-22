@@ -68,7 +68,7 @@ function getEmailData() {
             'id': 'OXeMGbwNskc',
             'from': {
                 'name': 'itay',
-                'thumbnail': '',
+                'thumbnail': 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
                 'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
@@ -83,7 +83,7 @@ function getEmailData() {
             'id': 'OXeMGqwNskc',
             'from': {
                 'name': 'jonas',
-                'thumbnail': '',
+                'thumbnail': 'https://robohash.org/doloribusquiunde.jpg?size=50x50&set=set1',
                 'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
@@ -97,7 +97,7 @@ function getEmailData() {
             'id': 'OXeMG8vNskc',
             'from': {
                 'name': 'tal',
-                'thumbnail': '',
+                'thumbnail': 'https://robohash.org/veritatisdoloribusporro.png?size=50x50&set=set1',
                 'email': 'jihri@tizi.com'
             },
             'date': Date.now(),
@@ -111,7 +111,7 @@ function getEmailData() {
             'id': 'OXeaG8wNskc',
             'from': {
                 'name': 'itay',
-                'thumbnail': '',
+                'thumbnail': 'https://robohash.org/idhicomnis.bmp?size=50x50&set=set1',
                 'email': 'jihri@tizi.com'
             },
             'date': Date.now(),

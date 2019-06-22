@@ -28,7 +28,7 @@ export default {
 
     data() {
         return {
-            date: moment(this.email.date).format('LT')
+            date: moment(this.email.date).format('LLL')
         }
     },
     
