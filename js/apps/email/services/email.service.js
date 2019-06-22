@@ -10,7 +10,8 @@ export const emailService = {
     deleteEmail,
     changeReadStatus,
     countUnread,
-    sortEmails
+    sortEmails,
+    addEmail,
 }
 
 
@@ -61,11 +62,29 @@ function sortEmails(condition) {
     if (condition==='name') utilService.sortByTitle(emailDB)
 }
 
+function addEmail(name, subject, desc, date) {
+    var email = {
+        'id': utilService.makeId(),
+        from: {
+            name,
+            thumbnail: '',
+            email: 'jihri@tizi.com'
+        },
+        date,
+        message: {
+            subject,
+            desc,
+            isRead: false
+        }
+    }
+    emailDB.push(email);
+    storageService.store(EMAIL_KEY, emailDB);
+}
 
 function getEmailData() {
     return [
         {
-            'id': 'OXeMGbwNskc',
+            'id': utilService.makeId(),
             'from': {
                 'name': 'itay',
                 'thumbnail': 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
@@ -80,7 +99,7 @@ function getEmailData() {
 
         },
         {
-            'id': 'OXeMGqwNskc',
+            'id': utilService.makeId(),
             'from': {
                 'name': 'jonas',
                 'thumbnail': 'https://robohash.org/doloribusquiunde.jpg?size=50x50&set=set1',
@@ -94,7 +113,7 @@ function getEmailData() {
             }
         },
         {
-            'id': 'OXeMG8vNskc',
+            'id': utilService.makeId(),
             'from': {
                 'name': 'tal',
                 'thumbnail': 'https://robohash.org/veritatisdoloribusporro.png?size=50x50&set=set1',
@@ -108,7 +127,7 @@ function getEmailData() {
             }
         },
         {
-            'id': 'OXeaG8wNskc',
+            'id': utilService.makeId(),
             'from': {
                 'name': 'itay',
                 'thumbnail': 'https://robohash.org/idhicomnis.bmp?size=50x50&set=set1',

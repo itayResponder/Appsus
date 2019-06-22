@@ -16,10 +16,10 @@ export default {
             <email-sort></email-sort>
             <button class="btn-compose" @click="isActivated">Compose</button>
             <div class="container">
-                <email-side-nav></email-side-nav>
+                <email-side-nav></email-side-nav>  
                 <router-view :emails="emailsForDisplay"></router-view>
             </div>
-            <email-compose :isShown="this.isShown"></email-compose>
+            <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
     </section>
     `,
 
@@ -73,10 +73,6 @@ export default {
     },
 
     methods: {
-        // onSelected(emailId) {
-        //     this.selectedEmail = this.emails.find(email => email.id === emailId)
-        //     this.filter = null;
-        // },
         
         setFilter(filter) {
             this.filter = filter;

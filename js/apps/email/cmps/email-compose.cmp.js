@@ -1,6 +1,7 @@
 //• Has a form with subject and body
 // • Use the service to add email to the list
 // • Yes, we are only supporting selfi-emails for now (-:
+import {emailService} from '../services/email.service.js';
 
 export default {
 
@@ -9,9 +10,9 @@ export default {
         <transition name="fade">
             <div class="my-form" v-show="isShown">
                 <form class="test" @submit.prevent="sendEmail">
-                    <input type="text" v-model="email.to" placeholder="To"/>
+                    <input type="text" v-model="email.to" placeholder="To" required autofocus/>
                     <input type="text" v-model="email.subject" placeholder="Subject"/>
-                    <textarea v-model="email.msg" rows="3" max-rows="6"></textarea>
+                    <textarea v-model="email.msg"></textarea>
                     <button type="submit" @click="send">Send</button>
                 </form>
             </div>
@@ -30,16 +31,19 @@ export default {
             },
         }
     },
+    compononets: {
+        emailService,
+    },
 
     methods: {
-
         sendEmail() {
             this.email.date = Date.now();
-            console.log('saving email...');
+            emailService.addEmail(this.email.to, this.email.subject, this.email.msg, this.email.date);
+            this.$emit('send-clicked')
         },
 
         send() {
-
+            
         }
     }
 }
