@@ -22,5 +22,5 @@ export default {
 
     created() {
         this.unreadCount = emailService.countUnread()
-        }
+        },
 }
