@@ -1,6 +1,5 @@
 import unread from '../cmps/email-status.js'
 
-
 export default {
     template: `
         <div>

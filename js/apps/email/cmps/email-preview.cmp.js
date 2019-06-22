@@ -16,7 +16,7 @@ export default {
                     <span class="decription">{{email.message.desc}}</span>
                 </div>
                 <div class="right-side">
-                <span>{{email.date}}</span>
+                <span>{{date}}</span>
             <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg' alt="Delete mail"/>
             <img @click.stop='changeReadorUnread' src='../../../../svg/message.svg'/>
             </div>
@@ -25,6 +25,13 @@ export default {
         `,
 
     props: ['email'],
+
+    data() {
+        return {
+            date: moment(this.email.date).format('LT')
+        }
+    },
+
 
     methods: {
         goToMail() {
