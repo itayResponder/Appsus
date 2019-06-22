@@ -61,6 +61,8 @@ export default {
     methods: {
         onSelected(emailId) {
             this.selectedEmail = this.emails.find(email => email.id === emailId)
+            eventBus.$emit(SHOW_MSG,
+                { txt: 'Welcome to the team', type: 'success' });
             this.filter = null;
         },
         

@@ -1,6 +1,9 @@
 
+
+
 .emails-list {
     width: 100%;
+    
 }
 
 .email-preview-container{
@@ -55,4 +58,33 @@ height: 24px;
 
 .btn-compose {
     cursor: pointer;
+}
+
+.my-form {
+position: fixed;
+right: 50px;
+bottom: 0;
+background-color: #000000bd;
+padding: 30px;
+}
+
+.my-form>* {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-form input {
+    margin: 13px;
+}
+
+.my-form textarea {
+    margin: 13px;
+    height: 200px;
+    width: 500px;
+}
+
+.sidenav-bar a {
+    
+    width: 150px;
+    margin: 50px;
 }
