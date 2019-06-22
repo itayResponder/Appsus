@@ -70,9 +70,9 @@ export default {
             this.filter = filter;
         },
 
-        setShow() {
-            return this.isShown;
-        },
+        // setShow() {
+        //     return this.isShown;
+        // },
 
         isActivated () {
             this.isShown = !this.isShown;

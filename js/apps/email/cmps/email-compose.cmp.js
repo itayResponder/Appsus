@@ -6,14 +6,16 @@ export default {
 
     template: `
     <section class="compose-modal">
-    <div class="my-form" v-show="isShown">
-        <form @submit.prevent="sendEmail">
-            <input type="text" v-model="email.to" placeholder="To"/>
-            <input type="text" v-model="email.subject" placeholder="Subject"/>
-            <textarea v-model="email.msg" rows="3" max-rows="6"></textarea>
-            <button type="submit" @click="send">Send</button>
-        </form>
-    </div>
+        <transition name="fade">
+            <div class="my-form" v-show="isShown">
+                <form class="test" @submit.prevent="sendEmail">
+                    <input type="text" v-model="email.to" placeholder="To"/>
+                    <input type="text" v-model="email.subject" placeholder="Subject"/>
+                    <textarea v-model="email.msg" rows="3" max-rows="6"></textarea>
+                    <button type="submit" @click="send">Send</button>
+                </form>
+            </div>
+        </transition>
     </section>
 
     `,
@@ -32,7 +34,7 @@ export default {
     methods: {
 
         sendEmail() {
-            this.date = Date.now();
+            this.email.date = Date.now();
             console.log('saving email...');
         },
 
