@@ -1,5 +1,6 @@
 import { storageService } from '../../../storage.service.js'
 import { utilService } from '../../../util.service.js'
+import { EventBus, EMAIL_READ } from '../../../event-bus.js';
 
 const EMAIL_KEY = 'email';
 var emailDB = [];
@@ -33,15 +34,17 @@ function getById(id) {
 
 function emailRead(id) {
     getById(id)
-    .then(email => {
-        email.message.isRead = true
-        storageService.store(EMAIL_KEY, emailDB)
-    })
+        .then(email => {
+            email.message.isRead = true
+            storageService.store(EMAIL_KEY, emailDB)
+
+            EventBus.$emit(EMAIL_READ);
+        })
 }
 
 function deleteEmail(id) {
     const emailIdx = emailDB.findIndex(email => email.id === id)
-    emailDB.splice(emailIdx,1)
+    emailDB.splice(emailIdx, 1)
     storageService.store(EMAIL_KEY, emailDB)
 }
 
@@ -49,17 +52,19 @@ function changeReadStatus(id) {
     const email = emailDB.find(email => email.id === id)
     email.message.isRead = !email.message.isRead
     storageService.store(EMAIL_KEY, emailDB)
-} 
+    EventBus.$emit(EMAIL_READ);
+}
 
 function countUnread() {
-    console.log('email-service-count',emailDB.filter(email => email.message.isRead === false).length);
-    return emailDB.filter(email => email.message.isRead === false).length
+    const { length } = emailDB.filter(email => email.message.isRead === false);
+    console.log('email-service-count', length);
+    return length;
 }
 
 function sortEmails(condition) {
     console.log(condition)
     if (condition === 'date') utilService.sortByDate(emailDB)
-    if (condition==='name') utilService.sortByTitle(emailDB)
+    if (condition === 'name') utilService.sortByTitle(emailDB)
 }
 
 function addEmail(name, subject, desc, date) {

@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function makeId(length=5) {
+function makeId(length = 5) {
     var text = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -31,14 +31,6 @@ function makeLorem(length) {
     return randStr;
 }
 
-export const utilService = {
-    getRandomInt,
-    makeLorem,
-    makeId,
-    sortByDate,
-    sortByTitle
-}
-
 function getRandChar() {
     var LETTERS = 'abcdefghijklmnopqrstuvwxyz';
     var randIndex = parseInt(Math.random() * LETTERS.length)
@@ -57,17 +49,26 @@ function createWord(length) {
 
 function sortByDate(items) {
     console.log(items)
-items.sort((a, b) => {
-    a.date - b.date});
+    items.sort((a, b) => {
+        a.date - b.date
+    });
 }
 
 function sortByTitle(items) {
-items.sort((a, b) => {
-    var nameA = a.from.name.toUpperCase(); // ignore upper and lowercase
-    var nameB = b.from.name.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    // names must be equal
-    return 0;
-  })
+    items.sort((a, b) => {
+        var nameA = a.from.name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.from.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        // names must be equal
+        return 0;
+    })
+}
+
+export const utilService = {
+    getRandomInt,
+    makeLorem,
+    makeId,
+    sortByDate,
+    sortByTitle
 }

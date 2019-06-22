@@ -1,9 +1,10 @@
 // • <email-status>
 // • Renders how many read from the emails
 import { emailService } from '../services/email.service.js'
+import { EventBus, EMAIL_READ } from '../../../event-bus.js';
 
 export default {
-    template:`<span :unRead="checkUnread" v-if="unRead">{{ unRead }}</span>`,
+    template: `<span  v-if="unRead">{{ unRead }}</span>`,
 
     data() {
         return {
@@ -12,12 +13,15 @@ export default {
     },
 
     methods: {
-        checkUnread() {
-            this.unRead = emailService.countUnread();  
-            console.log('email-status',this.unRead);  
-        }
+        // checkUnread() {
+        //     this.unRead = emailService.countUnread();  
+        // }
     },
     mounted() {
         this.unRead = emailService.countUnread();
+        
+        EventBus.$on(EMAIL_READ, () => {
+            this.unRead = emailService.countUnread();
+        });
     },
 }

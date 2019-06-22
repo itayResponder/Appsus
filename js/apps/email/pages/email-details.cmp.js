@@ -4,6 +4,7 @@
 // • allow deleting an email (using a service)
 
 import { emailService } from '../services/email.service.js';
+
 export default {
 
     // • Show entire details
@@ -29,6 +30,7 @@ export default {
         const emailId = this.$route.params.emailId;
         emailService.getById(emailId)
             .then(email => {
-                this.email = email})
+                this.email = email
+            })
     },
 }

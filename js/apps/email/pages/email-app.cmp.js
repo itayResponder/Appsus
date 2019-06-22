@@ -20,9 +20,8 @@ export default {
                 <router-view :emails="emailsForDisplay"></router-view>
             </div>
             <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
-    </section>
+        </section>
     `,
-
     data() {
         return {
             emails: '',
@@ -33,7 +32,7 @@ export default {
     },
 
     created() {
-        if (this.$route.path === '/miss-email') this.$router.push({path: '/miss-email/inbox'});
+        if (this.$route.path === '/miss-email') this.$router.push({ path: '/miss-email/inbox' });
         emailService.query()
             .then(emails => {
                 this.emails = emails
@@ -51,15 +50,15 @@ export default {
                 if (currFilter === 'all') currFilter = email.message.isRead
 
                 return (email.message.subject.includes(this.filter.txt) ||
-                email.message.desc.includes(this.filter.txt) ||
-                email.from.name.includes(this.filter.txt)) &&        
-                email.message.isRead === currFilter
+                    email.message.desc.includes(this.filter.txt) ||
+                    email.from.name.includes(this.filter.txt)) &&
+                    email.message.isRead === currFilter
             })
         },
 
         updateCounter() {
             this.unReadCounter = emailService.countUnread();
-            console.log('email-app-count',this.unReadCounter);
+            console.log('email-app-count', this.unReadCounter);
         }
     },
 
@@ -73,12 +72,12 @@ export default {
     },
 
     methods: {
-        
+
         setFilter(filter) {
             this.filter = filter;
         },
 
-        isActivated () {
+        isActivated() {
             this.isShown = !this.isShown;
         }
     }

@@ -1,10 +1,3 @@
-var bus = new Vue();
+export const EventBus = new Vue();
 
-export const SHOW_MSG = 'show-msg';
-export const PUKI = 'puki';
-
-bus.$on(PUKI, (ev) => {
-    console.log('Puki just Happened', ev);
-})
-
-export default bus;
+export const EMAIL_READ = 'EMAIL_READ';
