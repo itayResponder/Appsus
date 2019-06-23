@@ -8,7 +8,6 @@ export default {
 }
 
 var gTodos = [];
-_createTodos();
 
 function query() {
     return gTodos;
