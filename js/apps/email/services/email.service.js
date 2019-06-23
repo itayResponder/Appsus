@@ -57,7 +57,6 @@ function changeReadStatus(id) {
 
 function countUnread() {
     const { length } = emailDB.filter(email => email.message.isRead === false);
-    console.log('email-service-count', length);
     return length;
 }
 
@@ -101,7 +100,6 @@ function getEmailData() {
                 'desc': 'working with oriel',
                 'isRead': false
             }
-
         },
         {
             'id': utilService.makeId(),
