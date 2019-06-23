@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="note-preview" :style = "{backgroundColor: this.note.bgc}">
         <img @click.stop="pinNote"v-if="!note.isPinned" src="../../../../svg/pin.svg"/>
-        <img @click.stop="pinNote"v-if="note.isPinned" src="../../../../svg/pinned.svg"/>
+        <img @click.stop="pinNote"v-else src="../../../../svg/pinned.svg"/>
         <p v-if="note.txt"> {{note.txt}} </p>
         <img v-else-if="note.img" :src="note.img" alt="" width="200px" />
         <ul v-else-if="note.list">
