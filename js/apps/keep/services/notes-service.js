@@ -21,10 +21,22 @@ function query() {
     return Promise.resolve(noteDB);
 }
 
-function add(noteProp) {
+function add(noteProp, val) {
     let note = {};
-    note.id = utilService.makeId(),
-    note.noteProp = noteProp;
+    note.id = utilService.makeId();
+    if (noteProp === 'txt') {
+        note.txt = val;
+    } else if (noteProp === 'img') {
+        note.img = val;
+    } else if (noteProp === 'list') {
+        note.list = val;
+    } else if (noteProp === 'audio') {
+        note.audio = val;
+    } else if (noteProp === 'video') {
+        note.video = val;
+    } else {
+        note.list = val.split('\n');
+    }
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
 }

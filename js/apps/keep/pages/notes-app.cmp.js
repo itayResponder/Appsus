@@ -9,11 +9,14 @@ export default {
             <h1>Notes-App</h1>
             <section>
                 <div class="note-txt">
-                    <textarea v-model.onchange="txt" :txt="pushText"></textarea>
+                    <textarea v-model.onchange="txt"></textarea>
                 </div>
                 <div class="settings">
-                    <img @click.stop="color" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
-                    <img @click.stop="deleteNote" src="../../../../svg/pin.svg" :class="{}"/>
+                    <img @click.stop="noteTxt" src="../../../../svg/text.svg" :class="{}"/>
+                    <img @click.stop="noteImage" src="../../../../svg/image.svg" :class="{}"/>
+                    <img @click.stop="noteTodo" src="../../../../svg/todo.svg" :class="{}"/>
+                    <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
+                    <img @click.stop="pinNote" src="../../../../svg/pin.svg" :class="{}"/>
                     <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg" :class="{}"/>
                 </div>
             </section>         
@@ -24,7 +27,8 @@ export default {
     data() {
         return {
             txt:'',
-            notes: ''
+            notes: '',
+            isColorClicked: false,
         }
     },
 
@@ -38,11 +42,22 @@ export default {
         noteList
     },
     methods: {
-        pushText() {
-            noteService.add(this.txt);
-            noteService.query()
-            .then(notes => console.log(notes))
-        }
+        colorNote() {
+            this.isColorClicked = !this.isColorClicked;
+        },
+        noteTxt() {
+            noteService.add('txt',this.txt);
+            this.txt = '';
+        },
+        noteImage() {
+            noteService.add('img',this.txt);
+            this.txt = '';
+        },
+
+        noteTodo() {
+            noteService.add('todo',this.txt);
+            this.txt = '';
+        },
     }
 
 }
