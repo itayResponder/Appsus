@@ -12,12 +12,12 @@ export default {
                     <textarea v-model.onchange="txt"></textarea>
                 </div>
                 <div class="settings">
-                    <img @click.stop="noteTxt" src="../../../../svg/text.svg" :class="{}"/>
-                    <img @click.stop="noteImage" src="../../../../svg/image.svg" :class="{}"/>
-                    <img @click.stop="noteTodo" src="../../../../svg/todo.svg" :class="{}"/>
+                    <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
+                    <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
+                    <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
                     <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
-                    <img @click.stop="pinNote" src="../../../../svg/pin.svg" :class="{}"/>
-                    <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg" :class="{}"/>
+                    <img @click.stop="pinNote" src="../../../../svg/pin.svg"/>
+                    <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
                 </div>
             </section>         
             <note-list :notes = "notes"></note-list>
