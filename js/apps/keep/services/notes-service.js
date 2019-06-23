@@ -8,7 +8,8 @@ var noteColors = [];
 export const noteService = {
     query,
     add,
-    changeBGC
+    changeBGC,
+    getNoteData,
 }
 
 function query() {
@@ -21,7 +22,10 @@ function query() {
     return Promise.resolve(noteDB);
 }
 
-function add(note) {
+function add(noteProp) {
+    let note = {};
+    note.id = utilService.makeId(),
+    note.noteProp = noteProp;
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
 }
@@ -34,13 +38,16 @@ function changeBGC(id) {
 function getNoteData() {
     return [
         {
+            id: utilService.makeId(),
             txt: 'hey im working'
         },
         {
-            txt: 'hey im working great'
+            id: utilService.makeId(),
+            img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg'
         },
         {
-            txt: 'hey im working verry verrry greaaaat'
+            id: utilService.makeId(),
+            list: 'hey im working verry verrry greaaaat'
         },
 
     ]

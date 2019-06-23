@@ -87,7 +87,7 @@ function addEmail(name, subject, desc, date) {
             isRead: false
         }
     }
-    emailDB.push(email);
+    emailDB.unshift(email);
     storageService.store(EMAIL_KEY, emailDB);
 }
 
