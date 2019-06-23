@@ -40,7 +40,6 @@ function add(noteProp, val) {
     note.bgc = 'white'
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
-    // location.reload();
 }
 
 function changeBGC(id, color) {

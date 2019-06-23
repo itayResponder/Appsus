@@ -64,6 +64,7 @@ button.email-btn:before{
 }
 
 .note-start textarea {
+    /* display: block; */
     opacity: 0.8;
     top: 10px;
     right: 10px;
@@ -74,5 +75,4 @@ button.email-btn:before{
     border-left: none;
     border-right: none;
     margin-top: 50px;
-    /* border: solid 1px silver; */
 }

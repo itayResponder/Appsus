@@ -3,6 +3,10 @@
 .note-start {
     box-shadow: 0px 0px 7px 0px black; 
     width:50%;
-    margin-left: 20%;
+    margin: 0 auto;
     height: 200px;
+}
+
+.note-start > * {
+    margin: 20px;
 }
