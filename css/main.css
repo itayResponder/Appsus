@@ -5,7 +5,7 @@
 @import url("/css/email-compose.css");
 @import url("/css/note-settings.css");
 @import url("/css/note-todo.css");
-
+@import url("/css/note.css");
 
 @font-face {
     font-family: IbmplFont;
@@ -61,4 +61,14 @@ button.email-btn:before{
     left: 0px;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACPElEQVRIie2SMWvbQBiGHxufksVgJ5aQMA4hRlBkvHnOr+hWOgey9Zdkzmbo2t+SpbgExzLnTAFhScTOyULRqUujVjgEkhi65IUP7k7c+7zffYIP/W/VnhaXl5efgeGOfH+enZ39KHfj8fjC9/0iSZKdlO/7xXg8vgBoAPR6vXPTNFFK7SS+aZr0er1z4FsDYLlcGlJKHMfZCUBKyXK5NOBPB7Zt02g0mEwm9Pt9hBBvMs6yDN/3sSwL27YpAUVR0Ol0aDabSClpNpuYpvkq8yAIWK1W9Pt99vb2CIIAgPoTQGuNEALXdcmyjOl0SpqmPD4+vlhpmjKdTsmyDNd1EUKgtaYoimoHWusyTbfbZbPZMJ/POTg4oNVqPZs6jmPCMOTk5IT9/f2Kx4sAAMMw6Ha7SClZrVbYtk29XgdAa83d3R1KKY6PjzEMY+v+FiDP88rH29tbDg8POT09JQgCbm5uaLfbAERRhOu6mKaJlJL5fM7R0RG1Wm0LUJmB1pr1es1sNmMwGGBZFnEcI4TA8zzyPCfPczzPQwhBHMdYlsVgMGA2m7Fer0ufLUBRFCwWCwBGoxFKKZIkKU3zPMdxHBzHqZwlSYJSitFoBMBisSj9yidKkgQpJZ7nobUmiqJnh/qSoiii3W7T6XSYTCYkSfK3A601w+EQpRRKqUrC15RSioeHB4bDYbWDNE2vwzD89O+Q3iqtNWEYstlsrktAHMdfrq6uvrdaLe/pV3wPII7jX/f391/fnfZDO9FvEhjTrZjiwuIAAAAASUVORK5CYII=") no-repeat left center transparent;
     background-size: 100% 100%;
+}
+
+textarea {
+    opacity: 0.8;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    min-height: 80px;
+    width: 350px;
+    border: solid 1px silver;
 }

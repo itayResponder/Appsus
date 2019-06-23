@@ -7,6 +7,7 @@ var noteColors = [];
 
 export const noteService = {
     query,
+    add,
 }
 
 function query() {
@@ -17,6 +18,11 @@ function query() {
     }
     noteDB = note;
     return Promise.resolve(noteDB);
+}
+
+function add(note) {
+    noteDB.unshift(note);
+    storageService.store(NOTE_KEY, noteDB);
 }
 
 function getNoteData() {
@@ -30,5 +36,6 @@ function getNoteData() {
         {
             txt: 'hey im working verry verrry greaaaat'
         },
+
     ]
 }
