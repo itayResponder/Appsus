@@ -83,7 +83,7 @@ img.yellowed:hover {
     margin-bottom: 30px;
 }
 
-.btn-compose {
+button {
     cursor: pointer;
 }
 
