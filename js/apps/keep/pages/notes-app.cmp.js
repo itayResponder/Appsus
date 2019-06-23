@@ -9,7 +9,6 @@ export default {
         <section class="notes-app">
             <h1>Notes-App</h1>
             <note-txt />
-            <!-- <todo-list /> -->
             <note-list :notes = "notes"></note-list>            
         </section>
     `,
