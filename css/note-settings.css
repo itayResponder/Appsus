@@ -46,3 +46,6 @@ img {
     border: none;
   }
   
+  .note-preview .controler > * {
+    margin:  5px;
+  }
