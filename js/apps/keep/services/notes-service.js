@@ -53,7 +53,7 @@ function getNoteData() {
         {
             id: utilService.makeId(),
             txt: 'hey im working',
-            bgc: 'black'
+            bgc: 'white'
         },
         {
             id: utilService.makeId(),
@@ -63,7 +63,7 @@ function getNoteData() {
         {
             id: utilService.makeId(),
             img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
-            bgc: 'white'
+            bgc: 'red'
             
         },
     ]
