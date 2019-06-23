@@ -14,7 +14,7 @@ export default {
         <section class="email-app">
             <email-filter @set-filter="setFilter"></email-filter>
             <email-sort></email-sort>
-            <button class="btn-compose" @click="isActivated">Compose</button>
+            <button class="email-btn btn-compose" @click="isActivated">Compose</button>
             <div class="container">
                 <email-side-nav></email-side-nav>  
                 <router-view :emails="emailsForDisplay"></router-view>

@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6 {
     margin:0;
 }
 
-button {
+button.email-btn {
     cursor: pointer;
     display: inline-block;
     text-align: center;
@@ -38,18 +38,18 @@ button {
     text-decoration: none;
 }
 
-button:hover {
+button.email-btn:hover {
     border: 1px solid #1a1a1a;
     background: #626262;
     color: #ffffff;
     text-decoration: none;
 }
 
-button:active {
+button.email-btn:active {
     background: #2b2b2b;
 }
 
-button:before{
+button.email-btn:before{
     content:  "\0000a0";
     display: inline-block;
     height: 24px;
