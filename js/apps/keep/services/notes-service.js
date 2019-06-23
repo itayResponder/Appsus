@@ -9,6 +9,7 @@ export const noteService = {
     add,
     changeBGC,
     getNoteData,
+    remove
 }
 
 function query() {
@@ -48,6 +49,12 @@ function changeBGC(id, color) {
     storageService.store(NOTE_KEY, noteDB);
 }
 
+function remove(id) {
+    const noteIdx = noteDB.findIndex(note => note.id === id)
+    noteDB.splice(noteIdx, 1)
+    storageService.store(NOTE_KEY, noteDB);
+}
+
 function getNoteData() {
     return [
         {
@@ -64,7 +71,7 @@ function getNoteData() {
             id: utilService.makeId(),
             img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
             bgc: 'red'
-            
+
         },
     ]
 }
