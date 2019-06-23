@@ -14,6 +14,7 @@ export default {
             <div class="input-color-container">
                 <input id="input-color" v-model='styleObject.backgroundColor' @change="colorPicked" class="input-color" type="color">
             </div>
+            <img @click.stop="pinNote"v-if="!note.pinned" src="../../../../svg/pin.svg"/>
             <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
         </div>
     </section>
@@ -35,6 +36,11 @@ export default {
         },
         deleteNote() {
             noteService.remove(this.note.id)
+        },
+        pinNote() {
+            this.note.isPinned = !this.note.isPinned;
+            noteService.changePinned(this.note.id, this.note.isPinned);
+            console.log(this.note.isPinned);
         }
     }
 }

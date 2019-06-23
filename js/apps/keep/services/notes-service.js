@@ -9,7 +9,8 @@ export const noteService = {
     add,
     changeBGC,
     getNoteData,
-    remove
+    remove,
+    changePinned
 }
 
 function query() {
@@ -25,6 +26,7 @@ function query() {
 function add(noteProp, val) {
     let note = {};
     note.id = utilService.makeId();
+    note.isPinned = false;
     if (noteProp === 'txt') {
         note.txt = val;
     } else if (noteProp === 'img') {
@@ -55,23 +57,31 @@ function remove(id) {
     storageService.store(NOTE_KEY, noteDB);
 }
 
+function changePinned(id,isPinned) {
+    const note = noteDB.find(note => note.id === id)
+    note.isPinned = isPinned;
+    storageService.store(NOTE_KEY, noteDB);;
+}
+
 function getNoteData() {
     return [
         {
             id: utilService.makeId(),
             txt: 'hey im working',
-            bgc: 'white'
+            bgc: 'white',
+            isPinned: false
         },
         {
             id: utilService.makeId(),
             txt: 'hey dasdas working',
-            bgc: 'grey'
+            bgc: 'grey',
+            isPinned: false
         },
         {
             id: utilService.makeId(),
             img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
-            bgc: 'red'
-
+            bgc: 'red',
+            isPinned: true
         },
     ]
 }

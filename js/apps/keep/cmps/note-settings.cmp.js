@@ -11,8 +11,7 @@ export default {
                 <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
                 <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
                 <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
-                <img @click.stop="pinNote" src="../../../../svg/pin.svg"/>
-                <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
+                <img @click.stop="clearNote" src="../../../../svg/trash-can.svg"/>
             </div>
         </div>
         
@@ -28,9 +27,6 @@ export default {
 
         compononets: {
             noteService     
-        },
-        
-        created() {
         },
 
         methods: {
@@ -50,6 +46,10 @@ export default {
                 noteService.add('todo',this.txt);
                 this.txt = '';
             },
+
+            clearNote() {
+                this.txt = '';
+            }
         }
     
 }
