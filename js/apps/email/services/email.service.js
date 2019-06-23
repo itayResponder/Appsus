@@ -57,12 +57,10 @@ function changeReadStatus(id) {
 
 function countUnread() {
     const { length } = emailDB.filter(email => email.message.isRead === false);
-    console.log('email-service-count', length);
     return length;
 }
 
 function sortEmails(condition) {
-    console.log(condition)
     if (condition === 'date') utilService.sortByDate(emailDB)
     if (condition === 'name') utilService.sortByTitle(emailDB)
 }
