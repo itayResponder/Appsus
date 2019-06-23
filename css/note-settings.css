@@ -1,0 +1,10 @@
+
+img {
+    cursor: pointer;
+}
+
+.colorClicked {
+    fill: black;
+    background-color: blue;
+    color:yellow;
+}
