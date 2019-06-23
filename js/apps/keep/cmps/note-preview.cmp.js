@@ -3,6 +3,7 @@ import { noteService } from '../services/notes-service.js'
 export default {
     template: `
     <section class="note-preview" :style = "{backgroundColor: this.note.bgc}">
+        <img @click.stop="pinNote"v-if="!note.pinned" src="../../../../svg/pin.svg"/>
         <p v-if="note.txt"> {{note.txt}} </p>
         <img v-else-if="note.img" :src="note.img" alt="" width="200px" />
         <ul v-else-if="note.list">
@@ -27,6 +28,11 @@ export default {
     methods: {
         colorPicked() {
             noteService.changeBGC(this.note.id, this.styleObject.backgroundColor)
+        },
+        pinNote() {
+            this.note.isPinned = !this.note.isPinned;
+            noteService.changePinned(this.note.id, this.note.isPinned);
+            console.log(this.note.isPinned);
         }
     }
 }
