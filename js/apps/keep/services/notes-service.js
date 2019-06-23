@@ -8,6 +8,7 @@ var noteColors = [];
 export const noteService = {
     query,
     add,
+    changeBGC
 }
 
 function query() {
@@ -23,6 +24,11 @@ function query() {
 function add(note) {
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
+}
+
+function changeBGC(id) {
+    const note = noteDB.find(note => note.id === id)
+    console.log(note)
 }
 
 function getNoteData() {
