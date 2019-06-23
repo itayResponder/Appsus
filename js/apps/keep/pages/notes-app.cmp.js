@@ -7,19 +7,17 @@ export default {
     template: `
         <section class="notes-app">
             <h1>Notes-App</h1>
-            <section>
-                <div class="note-txt">
+                <div class="note-start">
                     <textarea v-model.onchange="txt"></textarea>
-                </div>
-                <div class="settings">
-                    <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
-                    <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
-                    <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
-                    <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
-                    <img @click.stop="pinNote" src="../../../../svg/pin.svg"/>
-                    <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
-                </div>
-            </section>         
+                    <div class="settings">
+                        <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
+                        <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
+                        <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
+                        <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
+                        <img @click.stop="pinNote" src="../../../../svg/pin.svg"/>
+                        <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
+                    </div>
+                </div>      
             <note-list :notes = "notes"></note-list>
         </section>
     `,
