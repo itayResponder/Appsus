@@ -23,11 +23,6 @@ function toggle(todo) {
     todo.isDone = !todo.isDone;
 }
 
-function _createTodos() {
-    add(getEmptyTodo('Wash your mouth'))
-    add(getEmptyTodo('D the homework'))
-}
-
 function getEmptyTodo(txt = '') {
     return { txt, isDone: false, priority: 0 }
 }

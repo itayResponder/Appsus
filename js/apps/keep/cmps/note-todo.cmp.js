@@ -6,14 +6,12 @@ export default {
             <h3>Todos</h3>
             <ul>
                 <li v-for="(todo, i) in todos" @click="toggleTodo(todo)" :class="{'todo-done' : todo.isDone}">
-                    {{i+1}} {{todo.txt}} Priority: {{todo.priority}}
+                    {{i+1}} {{todo.txt}}
                     <button @click.stop="deleteTodo(i)">x</button>
                 </li>
             </ul>
             <div>
                 <input type="text" placeholder="What todo?" v-model="newTodo.txt" @keyup.enter="addTodo" />
-                <input type="checkbox" v-model="newTodo.isDone"  /> Done?
-                <input type="number" v-model.number="newTodo.priority" placeholder="Priority"  /> 
                 <button @click="addTodo">Add</button>
             </div>
         </section>
@@ -31,7 +29,6 @@ export default {
         addTodo(){
             todoService.add(this.newTodo);
             this.newTodo = todoService.getEmptyTodo();
-            console.log(this.todos);
         },
 
         toggleTodo(todo) {
