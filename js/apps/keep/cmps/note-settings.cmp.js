@@ -25,17 +25,12 @@ export default {
         },
         
         created() {
-            noteService.query().then(colors => {
-                // console.log(colors);
-                this.colors.push(colors[0].color);
-            })
-            console.log(this.colors);
         },
 
         methods: {
             color() {
                 this.isColorClicked = !this.isColorClicked;
-            }
+            },
         }
     
 }

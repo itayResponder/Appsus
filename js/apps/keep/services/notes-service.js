@@ -8,6 +8,7 @@ var noteColors = [];
 export const noteService = {
     query,
     add,
+    getNoteData,
 }
 
 function query() {
@@ -20,7 +21,10 @@ function query() {
     return Promise.resolve(noteDB);
 }
 
-function add(note) {
+function add(noteProp) {
+    let note = {};
+    note.id = utilService.makeId(),
+    note.noteProp = noteProp;
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
 }
@@ -28,12 +32,15 @@ function add(note) {
 function getNoteData() {
     return [
         {
+            id: utilService.makeId(),
             txt: 'hey im working'
         },
         {
+            id: utilService.makeId(),
             img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg'
         },
         {
+            id: utilService.makeId(),
             list: 'hey im working verry verrry greaaaat'
         },
 
