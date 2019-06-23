@@ -13,7 +13,7 @@ export default {
                     <input type="text" v-model="email.to" placeholder="To" required autofocus/>
                     <input type="text" v-model="email.subject" placeholder="Subject"/>
                     <textarea v-model="email.msg"></textarea>
-                    <button type="submit" @click="send">Send</button>
+                    <button class="email-btn" type="submit" @click="send">Send</button>
                 </form>
             </div>
         </transition>

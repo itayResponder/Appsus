@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="settings">
             <div>
-            <img @click.stop="color" src="../../../../svg/color-plate.svg" :class="{clicked:}"/>
+            <img @click.stop="color" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
             <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg" :class="{}"/>
             </div>
         </section>
@@ -14,13 +14,14 @@ export default {
 
         data() {
             return {
-
+                isColorClicked: false
             }
         },
 
         methods: {
             color() {
-                console.log('color-clicked');
+                this.isColorClicked = !this.isColorClicked;
+                console.log(this.isColorClicked);
             }
         }
     
