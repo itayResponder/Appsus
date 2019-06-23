@@ -31,10 +31,10 @@ function getNoteData() {
             txt: 'hey im working'
         },
         {
-            txt: 'hey im working great'
+            img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg'
         },
         {
-            txt: 'hey im working verry verrry greaaaat'
+            list: 'hey im working verry verrry greaaaat'
         },
 
     ]
