@@ -6,6 +6,7 @@ export default {
         <div class="settings">
             <div>
                 <textarea v-model.onchange="txt"></textarea>
+                <div></div>
                 <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
                 <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
                 <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
