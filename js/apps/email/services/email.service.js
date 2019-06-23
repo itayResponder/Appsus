@@ -107,7 +107,6 @@ function getEmailData() {
                 isRead: false,
                 isStarred: false
             }
-
         },
         {
             id: utilService.makeId(),
