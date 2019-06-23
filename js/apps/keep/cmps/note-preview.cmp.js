@@ -5,8 +5,8 @@ export default {
     <section :style = "styleObject">
     <p v-if="note.txt"> {{note.txt}} </p>
     <img v-else-if="note.img" :src="note.img" alt="" width="200px" />
-    <ul v-else-if="note.todo">
-        <li v-for='todo in note.todo'></li>
+    <ul v-else-if="note.list">
+        <li v-for='list in note.list'>{{list}}</li>
     </ul>
     <input type="color" v-model='styleObject.backgroundColor' @change="colorPicked" name="" id=""/>
     </section>

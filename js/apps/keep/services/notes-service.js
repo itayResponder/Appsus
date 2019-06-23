@@ -3,7 +3,6 @@ import { utilService } from '../../../util.service.js';
 
 const NOTE_KEY = 'notes';
 var noteDB = [];
-var noteColors = [];
 
 export const noteService = {
     query,
@@ -66,11 +65,5 @@ function getNoteData() {
             bgc: ''
             
         },
-        {
-            id: utilService.makeId(),
-            list: 'hey im working verry verrry greaaaat',
-            bgc: ''
-        },
-
     ]
 }

@@ -70,5 +70,9 @@ textarea {
     padding: 10px;
     min-height: 80px;
     width: 350px;
-    border: solid 1px silver;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 50px;
+    /* border: solid 1px silver; */
 }
