@@ -27,7 +27,4 @@ export default {
         noteList,
         noteSetting
     },
-    methods: {
-    }
-
 }
