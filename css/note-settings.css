@@ -9,10 +9,30 @@ img {
     color:yellow;
 }
 
-.note {
+.note-preview {
     border: 1px solid black;
     cursor: pointer;
     padding: 20px;
     margin: 10px;
     width: 30vw;
 }
+
+.input-color-container {
+    position: relative;
+    overflow: hidden;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    border: solid 2px #ddd;
+    border-radius: 40px;
+  }
+  
+  .input-color {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    width: 56px;
+    height: 56px;
+    border: none;
+  }
+  

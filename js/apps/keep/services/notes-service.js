@@ -38,6 +38,7 @@ function add(noteProp, val) {
     } else {
         note.list = val.split('\n');
     }
+    note.bgc = 'white'
     noteDB.unshift(note);
     storageService.store(NOTE_KEY, noteDB);
 }
@@ -63,13 +64,13 @@ function getNoteData() {
         {
             id: utilService.makeId(),
             img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
-            bgc: ''
+            bgc: 'white'
             
         },
         {
             id: utilService.makeId(),
             list: 'hey im working verry verrry greaaaat',
-            bgc: ''
+            bgc: 'white'
         },
 
     ]
