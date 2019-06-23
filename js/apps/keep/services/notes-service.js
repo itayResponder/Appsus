@@ -30,24 +30,34 @@ function add(noteProp) {
     storageService.store(NOTE_KEY, noteDB);
 }
 
-function changeBGC(id) {
+function changeBGC(id, color) {
     const note = noteDB.find(note => note.id === id)
-    console.log(note)
+    note.bgc = color
+    storageService.store(NOTE_KEY, noteDB);
 }
 
 function getNoteData() {
     return [
         {
             id: utilService.makeId(),
-            txt: 'hey im working'
+            txt: 'hey im working',
+            bgc: 'black'
         },
         {
             id: utilService.makeId(),
-            img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg'
+            txt: 'hey dasdas working',
+            bgc: 'grey'
         },
         {
             id: utilService.makeId(),
-            list: 'hey im working verry verrry greaaaat'
+            img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
+            bgc: ''
+            
+        },
+        {
+            id: utilService.makeId(),
+            list: 'hey im working verry verrry greaaaat',
+            bgc: ''
         },
 
     ]
