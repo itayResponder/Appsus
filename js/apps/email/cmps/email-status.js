@@ -11,12 +11,6 @@ export default {
             unRead: 0
         }
     },
-
-    methods: {
-        // checkUnread() {
-        //     this.unRead = emailService.countUnread();  
-        // }
-    },
     mounted() {
         this.unRead = emailService.countUnread();
         

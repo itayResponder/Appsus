@@ -9,6 +9,7 @@ import { emailService } from '../../email/services/email.service.js'
 export default {
     template: `
         <section class="email-preview-container" @click.stop = 'goToMail'>
+            <img @click.stop="starredEmail" src="../../../../svg/star.svg" :class="{yellowed: email.message.isStarred}"/>
             <h2>{{email.from.name}}</h2>
             <div class="massage-content">
                 <div class="message-container">
@@ -42,6 +43,9 @@ export default {
         },
         changeReadorUnread() {
             emailService.changeReadStatus(this.email.id)
+        },
+        starredEmail() {
+            emailService.changeStarStatus(this.email.id);
         },
     },
 }

@@ -13,6 +13,7 @@ export const emailService = {
     countUnread,
     sortEmails,
     addEmail,
+    changeStarStatus,
 }
 
 
@@ -55,13 +56,18 @@ function changeReadStatus(id) {
     EventBus.$emit(EMAIL_READ);
 }
 
+function changeStarStatus(id) {
+    const email = emailDB.find(email => email.id === id)
+    email.message.isStarred = !email.message.isStarred;
+    storageService.store(EMAIL_KEY, emailDB)
+}
+
 function countUnread() {
     const { length } = emailDB.filter(email => email.message.isRead === false);
     return length;
 }
 
 function sortEmails(condition) {
-    console.log(condition)
     if (condition === 'date') utilService.sortByDate(emailDB)
     if (condition === 'name') utilService.sortByTitle(emailDB)
 }
@@ -88,59 +94,63 @@ function addEmail(name, subject, desc, date) {
 function getEmailData() {
     return [
         {
-            'id': utilService.makeId(),
-            'from': {
-                'name': 'itay',
-                'thumbnail': 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
-                'email': 'jihri@tizi.com'
+            id: utilService.makeId(),
+            from: {
+                name: 'itay',
+                thumbnail: 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
             },
-            'date': Date.now(),
-            'message': {
-                'subject': 'how to get beautiful life',
-                'desc': 'working with oriel',
-                'isRead': false
+            date: Date.now(),
+            message: {
+                subject: 'how to get beautiful life',
+                desc: 'working with oriel',
+                isRead: false,
+                isStarred: false
             }
         },
         {
-            'id': utilService.makeId(),
-            'from': {
-                'name': 'jonas',
-                'thumbnail': 'https://robohash.org/doloribusquiunde.jpg?size=50x50&set=set1',
-                'email': 'jihri@tizi.com'
+            id: utilService.makeId(),
+            from: {
+                name: 'jonas',
+                thumbnail: 'https://robohash.org/doloribusquiunde.jpg?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
             },
-            'date': Date.now(),
-            'message': {
-                'subject': 'Lets make gums',
-                'desc': 'working with oriel',
-                'isRead': false
+            date: Date.now(),
+            message: {
+                subject: 'Lets make gums',
+                desc: 'working with oriel',
+                isRead: false,
+                isStarred: false
             }
         },
         {
-            'id': utilService.makeId(),
-            'from': {
-                'name': 'tal',
-                'thumbnail': 'https://robohash.org/veritatisdoloribusporro.png?size=50x50&set=set1',
-                'email': 'jihri@tizi.com'
+            id: utilService.makeId(),
+            from: {
+                name: 'tal',
+                thumbnail: 'https://robohash.org/veritatisdoloribusporro.png?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
             },
-            'date': Date.now(),
-            'message': {
-                'subject': 'My problems',
-                'desc': 'working with oriel',
-                'isRead': false
+            date: Date.now(),
+            message: {
+                subject: 'My problems',
+                desc: 'working with oriel',
+                isRead: false,
+                isStarred: false
             }
         },
         {
-            'id': utilService.makeId(),
-            'from': {
-                'name': 'itay',
-                'thumbnail': 'https://robohash.org/idhicomnis.bmp?size=50x50&set=set1',
-                'email': 'jihri@tizi.com'
+            id: utilService.makeId(),
+            from: {
+                name: 'itay',
+                thumbnail: 'https://robohash.org/idhicomnis.bmp?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
             },
-            'date': Date.now(),
-            'message': {
-                'subject': 'you can get out from murder',
-                'desc': 'working with oriel',
-                'isRead': true
+            date: Date.now(),
+            message: {
+                subject: 'you can get out from murder',
+                desc: 'working with oriel',
+                isRead: true,
+                isStarred: true
             }
         },
     ]

@@ -27,7 +27,6 @@ export default {
             emails: '',
             filter: null,
             isShown: false,
-            unReadCounter: 0,
         }
     },
 
@@ -54,11 +53,6 @@ export default {
                     email.from.name.includes(this.filter.txt)) &&
                     email.message.isRead === currFilter
             })
-        },
-
-        updateCounter() {
-            this.unReadCounter = emailService.countUnread();
-            console.log('email-app-count', this.unReadCounter);
         }
     },
 
