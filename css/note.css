@@ -2,4 +2,7 @@
 
 .note {
     background-color: darkcyan;
+    width:50%;
+    margin-left: 20%;
+    height: 150px;
 }
