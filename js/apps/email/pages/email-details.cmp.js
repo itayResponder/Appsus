@@ -10,7 +10,6 @@ export default {
     // • Show entire details
     template: `
     <section class="email-details" v-if="email">
-        <h1>{{email}}</h1>
         <div class="sender">
             <img :src="email.from.thumbnail"/>
             <p>{{email.from.name}}</p>

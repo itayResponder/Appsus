@@ -1,5 +1,4 @@
 import emailPreview from './email-preview.cmp.js';
-import emailStarred from './email-starred.cmp.js';
 {/* <email-list> renders a list of <email-preview> pass down an email prop */}
 
 export default {
@@ -7,8 +6,7 @@ export default {
     <section class="emails-list">
             <section>
                 <email-preview v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail">
-                <email-starred v-if="!currentEmail.message.isStarred"></email-starred>
-                </email-preview>
+                    </email-preview>
             </section>
         </section>
     `,
@@ -17,6 +15,5 @@ export default {
     },
     components: {
         emailPreview,
-        emailStarred
     }
 }

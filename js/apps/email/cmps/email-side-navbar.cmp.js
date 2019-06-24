@@ -2,7 +2,6 @@ import unread from '../cmps/email-status.js'
 
 export default {
     template: `
-        <div>
             <nav class="sidenav-bar">
                 <ul>
                     <li><router-link exact to="/miss-email/inbox">Inbox <unread></unread></router-link></li>
@@ -11,7 +10,6 @@ export default {
                     
                 </ul>
             </nav>
-        </div>    
     `,
     components: {unread}
 }

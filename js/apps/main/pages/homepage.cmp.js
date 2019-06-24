@@ -3,9 +3,8 @@
 export default {
     template: `
     <section class="home">
-        <h1>Home Sweet Home</h1>
         <div class= "apps-previews">
-            <img src="/img/mail-home-prev.jpg"/>
+            <img src="/img/mail-home-prev.jpg" width="950"/>
             <div class="img-container"></div>
             <p>Miss Email</p>
         </div>
