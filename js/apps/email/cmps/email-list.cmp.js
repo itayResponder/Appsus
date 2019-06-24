@@ -6,6 +6,7 @@ export default {
     template: `
     <section class="emails-list">
             <section>
+                <h1>email-list</h1>
                 <email-preview v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail">
                     </email-preview>
             </section>

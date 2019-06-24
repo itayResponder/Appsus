@@ -8,7 +8,7 @@ import emailSideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
 import emailSort from '../cmps/email.sort.js'
 import emailDetails from '../pages/email-details.cmp.js';
-// import emailStarred from '../cmps/email-starred.cmp.js';
+import emailStarred from '../cmps/email-starred.cmp.js';
 
 export default {
     template: `
@@ -17,7 +17,9 @@ export default {
             <email-sort></email-sort>
             <button class="email-btn btn-compose" @click="isActivated">Compose</button>
             <div class="container">
-                <email-side-nav></email-side-nav>  
+                <email-side-nav></email-side-nav>
+                <!-- <email-list v-if="$route.path === '/miss-email/inbox'" :emails="emailsForDisplay"></email-list>  -->
+                <email-starred v-if="$route.path === '/miss-email/starred'" v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-starred>
                 <router-view :emails="emailsForDisplay"></router-view>
                 <!-- <email-starred v-if="!isStarred"></email-starred> -->
             </div>
@@ -66,7 +68,7 @@ export default {
         emailFilter,
         emailSort,
         emailDetails,
-        // emailStarred
+        emailStarred
     },
 
     methods: {
