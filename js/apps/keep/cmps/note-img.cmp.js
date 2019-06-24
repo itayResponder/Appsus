@@ -1,6 +1,6 @@
 import { createImg, updateNote, getById } from '../services/notes-service.js'
 import noteColors from './note-colors.cmp.js';
-import { THEME_GREY } from './note-colors.cmp.js';
+import { THEME_WHITE } from './note-colors.cmp.js';
 
 const themeToClass = (theme) => theme.toLowerCase().replace('_', '-');
 
@@ -21,7 +21,7 @@ export default {
             note: {
                 title: "",
                 url: "",
-                theme: themeToClass(THEME_GREY),
+                theme: themeToClass(THEME_WHITE),
             }
         }
     },
