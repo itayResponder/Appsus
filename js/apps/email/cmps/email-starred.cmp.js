@@ -1,11 +1,10 @@
-
+import emailList from './email-list.cmp.js';
+import {emailService} from '../services/email.service.js'
 
 export default {
-    props:['emails'],
     template: `
-    <section class="email-preview-container" @click.stop = 'goToMail' v-show="email.message.isStarred">
-            <h1>Email Starred</h1>
-            <img @click.stop="starredEmail" src="../../../../svg/star.svg" :class="{yellowed: email.message.isStarred}"/>
+    <section class="email-preview-container" @click.stop = 'goToMail' v-show="email.message.isStarred">      
+           <img @click.stop="starredEmail" src="../../../../svg/star.svg" :class="{yellowed: email.message.isStarred}"/>
             <h2>{{email.from.name}}</h2>
             <div class="massage-content">
                 <div class="message-container">
@@ -43,4 +42,8 @@ export default {
             emailService.changeStarStatus(this.email.id);
         },
     },
+    components: {
+        emailList,
+        emailService
+    }
 }
