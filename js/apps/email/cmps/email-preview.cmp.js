@@ -18,9 +18,9 @@ export default {
                 </div>
                 <div class="right-side">
                 <span>{{date}}</span>
-            <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg' alt="Delete mail"/>
-            <img @click.stop='changeReadorUnread' src='../../../../svg/message.svg'/>
-            </div>
+                <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg' alt="Delete mail"/>
+                <img @click.stop='changeReadorUnread' src='../../../../svg/message.svg'/>
+                </div>
             </div>
         </section>
         `,

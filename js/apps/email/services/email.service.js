@@ -85,7 +85,9 @@ function addEmail(name, subject, desc, date) {
         message: {
             subject,
             desc,
-            isRead: false
+            isRead: false,
+            isSent: true,
+            isStarred: false
         }
     }
     emailDB.unshift(email);
@@ -106,7 +108,8 @@ function getEmailData() {
             message: {
                 subject: 'how to get beautiful life',
                 desc: 'working with oriel',
-                isRead: false,
+                isRead: true,
+                isSent: true,
                 isStarred: false
             }
         },
@@ -121,7 +124,8 @@ function getEmailData() {
             message: {
                 subject: 'Lets make gums',
                 desc: 'working with oriel',
-                isRead: false,
+                isRead: true,
+                isSent: false,
                 isStarred: false
             }
         },
@@ -137,6 +141,7 @@ function getEmailData() {
                 subject: 'My problems',
                 desc: 'working with oriel',
                 isRead: false,
+                isSent: false,
                 isStarred: false
             }
         },
@@ -152,6 +157,7 @@ function getEmailData() {
                 subject: 'you can get out from murder',
                 desc: 'working with oriel',
                 isRead: true,
+                isSent: false,
                 isStarred: true
             }
         },
