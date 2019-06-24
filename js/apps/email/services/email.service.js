@@ -111,7 +111,7 @@ function getEmailData() {
                 isRead: true,
                 isSent: true,
                 isTrashed: false,
-                isStarred: false
+                isStarred: true
             }
         },
         {
@@ -151,7 +151,7 @@ function getEmailData() {
         {
             id: utilService.makeId(),
             from: {
-                name: 'itay',
+                name: 'David',
                 thumbnail: 'https://robohash.org/idhicomnis.bmp?size=50x50&set=set1',
                 email: 'jihri@tizi.com'
             },
@@ -162,7 +162,58 @@ function getEmailData() {
                 isRead: true,
                 isSent: false,
                 isTrashed: true,
-                isStarred: true
+                isStarred: false
+            }
+        },
+        {
+            id: utilService.makeId(),
+            from: {
+                name: 'Roey',
+                thumbnail: 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
+            },
+            date: Date.now(),
+            message: {
+                subject: 'how to get beautiful life',
+                desc: 'working with oriel',
+                isRead: true,
+                isSent: true,
+                isTrashed: false,
+                isStarred: false
+            }
+        },
+        {
+            id: utilService.makeId(),
+            from: {
+                name: 'david',
+                thumbnail: 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
+            },
+            date: Date.now(),
+            message: {
+                subject: 'how to get beautiful life',
+                desc: 'working with oriel',
+                isRead: true,
+                isSent: true,
+                isTrashed: false,
+                isStarred: false
+            }
+        },
+        {
+            id: utilService.makeId(),
+            from: {
+                name: 'joe',
+                thumbnail: 'https://robohash.org/perferendisadipsa.jpg?size=50x50&set=set1',
+                email: 'jihri@tizi.com'
+            },
+            date: Date.now(),
+            message: {
+                subject: 'how to get beautiful life',
+                desc: 'working with oriel',
+                isRead: true,
+                isSent: false,
+                isTrashed: true,
+                isStarred: false
             }
         },
     ]
