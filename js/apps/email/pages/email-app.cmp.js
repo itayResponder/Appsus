@@ -10,6 +10,7 @@ import emailSort from '../cmps/email.sort.js'
 import emailDetails from '../pages/email-details.cmp.js';
 import emailStarred from '../cmps/email-starred.cmp.js';
 import emailSent from '../cmps/email-sent.cmp.js';
+import emailTrash from '../cmps/email-trash.cmp.js';
 
 export default {
     template: `
@@ -28,6 +29,11 @@ export default {
                 <section v-if="$route.path === '/miss-email/sent'" class="emails-list">
                     <section>
                         <email-sent v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-sent>
+                    </section>
+                </section>
+                <section v-if="$route.path === '/miss-email/trash'" class="emails-list">
+                    <section>
+                        <email-trash v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-trash>
                     </section>
                 </section>
             </div>
@@ -77,7 +83,8 @@ export default {
         emailSort,
         emailDetails,
         emailStarred,
-        emailSent
+        emailSent,
+        emailTrash
     },
 
     methods: {
