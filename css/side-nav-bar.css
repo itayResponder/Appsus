@@ -39,16 +39,21 @@
     padding: 0;
 }
 
+.sidenav-bar li a:hover {
+    transition: 0.3s;
+    background-color: #858585;
+}
 .sidenav-bar a {
     display: flow-root;
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-weight: bold;
     width: 70px;
+    
 }
 
 .sidenav-bar li:first-child {
-margin-top: 100px;
+    margin-top: -20px;  
 }
 .sidenav-bar li {
 list-style-type: none;
