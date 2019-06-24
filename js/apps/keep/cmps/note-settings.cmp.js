@@ -1,55 +1,29 @@
 import { noteService } from '../services/notes-service.js'
+import { NOTE_IMAGE, NOTE_TEXT, NOTE_TODO } from '../pages/notes-app.cmp.js';
 
 export default {
-
     template: `
         <div class="settings">
             <div>
-                <textarea v-model.onchange="txt"></textarea>
-                <div></div>
                 <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
                 <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
                 <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
-                <img @click.stop="colorNote" src="../../../../svg/color-plate.svg" :class="{colorClicked: this.isColorClicked}"/>
-                <img @click.stop="clearNote" src="../../../../svg/trash-can.svg"/>
             </div>
         </div>
-        
         `,
 
-        data() {
-            return {
-                txt:'',
-                isColorClicked: false,
-                colors: []
-            }
+    methods: {
+        noteTxt() {
+            this.$emit('component-change', NOTE_TEXT);
         },
-
-        compononets: {
-            noteService     
+        noteImage() {
+            this.$emit('component-change', NOTE_IMAGE);
         },
-
-        methods: {
-            colorNote() {
-                this.isColorClicked = !this.isColorClicked;
-            },
-            noteTxt() {
-                noteService.add('txt',this.txt);
-                this.txt = '';
-            },
-            noteImage() {
-                noteService.add('img',this.txt);
-                this.txt = '';
-            },
-    
-            noteTodo() {
-                noteService.add('todo',this.txt);
-                this.txt = '';
-            },
-
-            clearNote() {
-                this.txt = '';
-            }
-        }
-    
+        noteTodo() {
+            this.$emit('component-change', NOTE_TODO);
+        },
+    },
+    compononets: {
+        noteService
+    },
 }

@@ -1,32 +1,59 @@
-import {noteService} from '../services/notes-service.js'
-import noteSettings from './note-settings.cmp.js';
+// import {noteService} from '../services/notes-service.js'
+// import noteSettings from './note-settings.cmp.js';
+import { createText, updateNote, getById } from '../services/notes-service.js'
+import noteColors from './note-colors.cmp.js';
+import { THEME_WHITE } from './note-colors.cmp.js';
+
+const themeToClass = (theme) => theme.toLowerCase().replace('_', '-');
 
 export default {
+    name: 'note-txt',
     template: `
-    <section class="note">
-        <div class="note-txt">
-            <textarea v-model.lazy="txt" :txt="pushText"></textarea>
-            <pre>{{this.txt}}</pre>
-            
-            <note-settings></note-settings>
-        </div>
+    <section :class="note.theme" class="note-txt">
+        <input type="text" v-model="note.title" placeholder= 'Title..' />
+        <textarea type="text" v-model="note.text" placeholder='Write your note...' />
+        <note-colors @theme-changed="changeTheme" />
+        <button @click="create">{{this.inEdit ? 'Update' : 'Save'}}</button>
     </section>
     `,
 
+    props: ['id'],
+
     data() {
         return {
-            txt:''
+            note: {
+                title: "",
+                text: "",
+                theme: themeToClass(THEME_WHITE),
+            }
         }
     },
-    components: {
-        noteSettings,
-        noteService,
+
+    created() {
+        if (this.id) {
+            getById(this.id)
+                .then(note => {
+                    this.note = note;
+                    this.inEdit = true;
+                });
+        }
     },
     methods: {
-        pushText() {
-            noteService.add(this.txt);
-            noteService.query()
-            .then(notes => console.log(notes))
+        changeTheme(theme) {
+            this.note.theme = themeToClass(theme);
+        },
+        create() {
+            if (this.inEdit) {
+                updateNote(this.note);
+                this.$emit('edit-finished')
+            } else {
+                createText(this.note);
+            }
+            
         }
+    },
+
+    components: {
+        noteColors
     }
 }

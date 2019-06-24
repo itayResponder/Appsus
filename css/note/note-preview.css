@@ -1,0 +1,47 @@
+
+.note-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.note-preview:hover {
+    box-shadow: 0 0 2px 0px black;
+}
+
+.note-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 20px;
+    margin: 25px;
+    width: 20vw;
+    border-radius: 4px;
+
+}
+
+.note-img {
+    width: 100%
+}
+
+.note-preview .svg {
+    height: 30px;
+    margin: 0 20px;
+    justify-self: flex-end;
+}
+
+.note-preview-type {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.note-preview-type p{
+    flex: 1 0 auto;
+}
+
+.todo-done {
+    text-decoration: line-through
+}

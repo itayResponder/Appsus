@@ -1,22 +1,42 @@
-import { noteService } from '../services/notes-service.js'
+import { noteService, remove } from '../services/notes-service.js'
+import noteTxt from '../cmps/note-txt.cmp.js'
+import noteImg from '../cmps/note-img.cmp.js'
+import noteTodo from '../cmps/note-todo.cmp.js'
 
 export default {
     template: `
-    <section class="note-preview" :style = "{backgroundColor: this.note.bgc}">
-        <div class="note-container">
-            <p v-if="note.txt"> {{note.txt}} </p>
-            <img v-else-if="note.img" :src="note.img" alt="" width="100%" />
-            <ul v-else-if="note.list">
-                <li v-for='list in note.list'>{{list}}</li>
-            </ul>
-        </div>
-        <div class="controler">
-            <div class="input-color-container">
-                <input id="input-color" v-model='styleObject.backgroundColor' @change="colorPicked" class="input-color" type="color">
+    <section class="note-preview" :class="this.note.theme">
+        <component :is="currentComponent" :id='this.note.id' @edit-finished="hideNote"></component>
+        <div  class="note-preview-type" v-if="note.type === 'TEXT' && !currentComponent">
+            <h2>{{note.title}}</h2>
+            <p>{{note.text}}</p>
+            <div class="buttons">
+                <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
+                <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
             </div>
-            <img @click.stop="pinNote" v-if="!note.isPinned" src="../../../../svg/pin.svg"/>
-            <img @click.stop="pinNote" v-else src="../../../../svg/pinned.svg"/>
-            <img @click.stop="deleteNote" src="../../../../svg/trash-can.svg"/>
+        </div>
+        <div class="note-preview-type" v-if="note.type === 'IMAGE' && !currentComponent">
+            <h2>{{note.title}}</h2>
+            <img class="note-img" :src="this.note.url" />
+            <div class="buttons">
+                <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
+                <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
+            </div>
+        </div>
+        <div class="note-preview-type" v-if="note.type === 'TODO' && !currentComponent">
+            <h2>{{note.title}}</h2>
+            <ul>
+                <li 
+                v-for="(todo, i) in note.todos" 
+                @click="toggleTodo(i)" 
+                :class="{'todo-done' : todo.isDone}">
+                {{ i+1 }}. {{todo.text}}
+            </li>
+        </ul>
+        <div class="buttons">
+            <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
+            <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
+        </div>
         </div>
     </section>
     `,
@@ -25,23 +45,40 @@ export default {
 
     data() {
         return {
-            styleObject: {
-                backgroundColor: ''
+            currentComponent: ''
+        }
+    },
+    methods: {
+        deleteNote() {
+            remove(this.note.id)
+        },
+
+        changeComponent() {
+            switch (this.note.type) {
+                case 'TEXT':
+                    this.currentComponent = noteTxt;
+                    break;
+                case 'IMAGE':
+                    this.currentComponent = noteImg;
+                    break;
+                case 'TODO':
+                    this.currentComponent = noteTxt;
+                    break;
             }
+        },
+
+        toggleTodo(idx) {
+            this.note.todos[idx].isDone = !this.note.todos[idx].isDone
+        },
+
+        hideNote() {
+            this.currentComponent = ''
         }
     },
 
-    methods: {
-        colorPicked() {
-            noteService.changeBGC(this.note.id, this.styleObject.backgroundColor)
-        },
-        deleteNote() {
-            noteService.remove(this.note.id)
-        },
-        pinNote() {
-            this.note.isPinned = !this.note.isPinned;
-            noteService.changePinned(this.note.id, this.note.isPinned);
-            console.log(this.note.isPinned);
-        }
+    components: {
+        noteTxt,
+        noteImg,
+        noteTodo
     }
 }
