@@ -2,16 +2,16 @@
 
 .container > :first-child {
     height: -webkit-fill-available;
-    background-color:rgba(190, 182, 182, 0.376);
-
+    background-color:white;
 }
 
 .email-btn.btn-compose {
     margin: -13px;
+    margin-bottom: 50px;
     position: absolute;
     box-shadow: 0 0 4px 0px black;
-    left: 40px;
-    top: 167px;
+    left: 30px;
+    top: 140px;
 }
 
 .sidenav-bar ul {
@@ -24,6 +24,7 @@
     background-color: #858585;
 }
 .sidenav-bar a {
+    margin:0;
     display: flow-root;
     text-decoration: none;
     color: black;
@@ -31,12 +32,11 @@
     width: 170px;
     height: 40px;
     padding-top: 15px;
-    
 }
 
 .sidenav-bar li:first-child {
     margin-top: -20px;  
 }
 .sidenav-bar li {
-list-style-type: none;
+    list-style-type: none;
 }
