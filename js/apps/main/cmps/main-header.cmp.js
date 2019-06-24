@@ -1,7 +1,7 @@
 export default {
     template: `
         <header>
-            <nav class="nav-bar">
+            <nav class="top-navbar">
                 <ul>
                     <li><router-link exact to="/">Home</router-link></li>
                     <li><router-link to="/miss-email/inbox">Miss Email</router-link></li>
