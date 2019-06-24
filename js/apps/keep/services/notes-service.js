@@ -1,87 +1,81 @@
+
 import { storageService } from '../../../storage.service.js';
 import { utilService } from '../../../util.service.js';
+import { EventBus, NOTE_UPDATED } from '../../../event-bus.js';
 
 const NOTE_KEY = 'notes';
-var noteDB = [];
+let noteDB = [];
 
 export const noteService = {
-    query,
-    add,
-    changeBGC,
-    getNoteData,
-    remove,
-    changePinned
+    query
 }
 
 function query() {
     let note = storageService.load(NOTE_KEY);
-    if (!note || note.length === 0) {
-        note = getNoteData();
-        storageService.store(NOTE_KEY, note)
-    }
-    noteDB = note;
+
+    noteDB = note || [];
     return Promise.resolve(noteDB);
 }
 
-function add(noteProp, val) {
-    let note = {};
-    note.id = utilService.makeId();
-    note.isPinned = false;
-    if (noteProp === 'txt') {
-        note.txt = val;
-    } else if (noteProp === 'img') {
-        note.img = val;
-    } else if (noteProp === 'list') {
-        note.list = val;
-    } else if (noteProp === 'audio') {
-        note.audio = val;
-    } else if (noteProp === 'video') {
-        note.video = val;
-    } else {
-        note.list = val.split('\n');
-    }
-    note.bgc = 'white'
-    noteDB.unshift(note);
+export const updateNote = (note) => {
+    const idx = noteDB.findIndex(({ id }) => id === note.id);
+
+    noteDB = [
+        ...noteDB.slice(0, idx),
+        note,
+        ...noteDB.slice(idx + 1),
+    ];
+    storageService.store(NOTE_KEY, noteDB)
+};
+
+export const getById = (idToFind) => {
+    const note = noteDB.find(({ id }) => id === idToFind);
+
+    return Promise.resolve(note);
+}
+
+export const createTodo = ({ title, todos, theme }) => {
+    noteDB = [{
+        id: utilService.makeId(),
+        date: Date.now(),
+        type: 'TODO',
+        title,
+        todos,
+        theme,
+    }, ...noteDB];
+    storageService.store(NOTE_KEY, noteDB)
+    EventBus.$emit(NOTE_UPDATED);
+}
+
+export const createText = ({ title, text, theme }) => {
+    noteDB = [{
+        id: utilService.makeId(),
+        date: Date.now(),
+        type: 'TEXT',
+        title,
+        text,
+        theme,
+    }, ...noteDB];
+    storageService.store(NOTE_KEY, noteDB)
+    EventBus.$emit(NOTE_UPDATED);
+}
+
+export const remove = (id) => {
+    const idx = noteDB.findIndex(note => note.id === id)
+    noteDB.splice(idx, 1)
     storageService.store(NOTE_KEY, noteDB);
 }
 
-function changeBGC(id, color) {
-    const note = noteDB.find(note => note.id === id)
-    note.bgc = color
-    storageService.store(NOTE_KEY, noteDB);
-}
 
-function remove(id) {
-    const noteIdx = noteDB.findIndex(note => note.id === id)
-    noteDB.splice(noteIdx, 1)
-    storageService.store(NOTE_KEY, noteDB);
-}
-
-function changePinned(id,isPinned) {
-    const note = noteDB.find(note => note.id === id)
-    note.isPinned = isPinned;
-    storageService.store(NOTE_KEY, noteDB);;
-}
-
-function getNoteData() {
-    return [
-        {
-            id: utilService.makeId(),
-            txt: 'hey im working',
-            bgc: 'white',
-            isPinned: false
-        },
-        {
-            id: utilService.makeId(),
-            txt: 'hey dasdas working',
-            bgc: 'grey',
-            isPinned: false
-        },
-        {
-            id: utilService.makeId(),
-            img: 'https://cdn.pixabay.com/photo/2017/10/31/07/49/horses-2904536__340.jpg',
-            bgc: 'red',
-            isPinned: true
-        },
-    ]
+export const createImg = ({ title, url, theme }) => {
+    noteDB = [{
+        id: utilService.makeId(),
+        date: Date.now(),
+        type: 'IMAGE',
+        url,
+        title,
+        theme,
+    }, ...noteDB];
+    storageService.store(NOTE_KEY, noteDB)
+    EventBus.$emit(NOTE_UPDATED);
 }

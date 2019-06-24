@@ -1,0 +1,16 @@
+.notes-app {
+    display: flex;
+}
+
+.new-note{
+    background-color: white;
+    padding: 20px;
+}
+
+.notes-txt-search {
+        background-color: transparent;
+        border: 2px solid #c1c1c1;
+        border-radius: 5px;
+        padding: 8px;
+        font-weight: bold;
+    }

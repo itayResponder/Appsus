@@ -1,0 +1,10 @@
+.settings img{
+    background-color: rgba(128, 128, 128, 0.329);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+.settings img:hover{
+    background-color: rgba(128, 128, 128, 0.729);
+}

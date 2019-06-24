@@ -3,9 +3,11 @@
 @import url("/css/email-app.css");
 @import url("/css/side-nav-bar.css");
 @import url("/css/email-compose.css");
-@import url("/css/note-settings.css");
-@import url("/css/note-todo.css");
-@import url("/css/note.css");
+@import url("./note/note-txt.css");
+@import url("./note/color.css");
+@import url("./note/note-preview.css");
+@import url("./note/note-settings.css");
+@import url("./note/notes-app.css");
 
 @font-face {
     font-family: IbmplFont;
