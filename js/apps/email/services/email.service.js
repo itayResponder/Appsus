@@ -44,8 +44,8 @@ function emailRead(id) {
 }
 
 function deleteEmail(id) {
-    const emailIdx = emailDB.findIndex(email => email.id === id)
-    emailDB.splice(emailIdx, 1)
+    const email = emailDB.find(email => email.id === id)
+    email.message.isTrashed = true;
     storageService.store(EMAIL_KEY, emailDB)
     EventBus.$emit(EMAIL_READ);
 }
@@ -110,6 +110,7 @@ function getEmailData() {
                 desc: 'working with oriel',
                 isRead: true,
                 isSent: true,
+                isTrashed: false,
                 isStarred: false
             }
         },
@@ -126,6 +127,7 @@ function getEmailData() {
                 desc: 'working with oriel',
                 isRead: true,
                 isSent: false,
+                isTrashed: false,
                 isStarred: false
             }
         },
@@ -142,6 +144,7 @@ function getEmailData() {
                 desc: 'working with oriel',
                 isRead: false,
                 isSent: false,
+                isTrashed: false,
                 isStarred: false
             }
         },
@@ -158,6 +161,7 @@ function getEmailData() {
                 desc: 'working with oriel',
                 isRead: true,
                 isSent: false,
+                isTrashed: true,
                 isStarred: true
             }
         },

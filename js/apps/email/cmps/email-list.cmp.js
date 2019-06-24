@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="emails-list">
             <section>
-                <email-preview v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail">
+                <email-preview v-for="currentEmail,idx in emails" :key="idx" v-if="!currentEmail.message.isTrashed" :email="currentEmail">
                     </email-preview>
             </section>
         </section>
