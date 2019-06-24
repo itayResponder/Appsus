@@ -4,6 +4,7 @@ import emailApp from './apps/email/pages/email-app.cmp.js';
 import emailDetails from './apps/email/pages/email-details.cmp.js';
 import emailList from './apps/email/cmps/email-list.cmp.js';
 import notesAppCmp from './apps/keep/pages/notes-app.cmp.js';
+import emailStarred from './apps/email/cmps/email-starred.cmp.js';  
 
 export default [
     { path: '/', component: homePage },
@@ -17,6 +18,10 @@ export default [
                 path:':emailId',
                 component: emailDetails
             },
+            {
+                path:'emailStarred',
+                component: emailStarred
+            }
         ]
     },
     { path: '/miss-keep',component:notesAppCmp}

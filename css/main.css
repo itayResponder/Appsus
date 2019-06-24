@@ -76,3 +76,7 @@ button.email-btn:before{
     border-right: none;
     margin-top: 50px;
 }
+
+.router-link-exact-active {
+    background-color: #858585;
+}
