@@ -7,8 +7,8 @@ export default {
     <section class="emails-list">
             <section>
                 <email-preview v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail">
-                <email-starred v-if="!currentEmail.message.isStarred"></email-starred>
-                </email-preview>
+                    </email-preview>
+                    <router-view></router-view>
             </section>
         </section>
     `,

@@ -8,6 +8,7 @@ import emailSideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
 import emailSort from '../cmps/email.sort.js'
 import emailDetails from '../pages/email-details.cmp.js';
+import emailStarred from '../cmps/email-starred.cmp.js';
 
 export default {
     template: `
@@ -62,7 +63,8 @@ export default {
         emailCompose,
         emailFilter,
         emailSort,
-        emailDetails
+        emailDetails,
+        emailStarred
     },
 
     methods: {

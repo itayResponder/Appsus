@@ -2,10 +2,10 @@
 
 export default {
     template: `
-    <section>
     <section class="email-preview-container" @click.stop = 'goToMail'>
-            <!-- <img @click.stop="starredEmail" src="../../../../svg/star.svg" :class="{yellowed: email.message.isStarred}"/> -->
-            <!-- <h2>{{email.from.name}}</h2>
+            <h1>Email Starred</h1>
+            <!-- <img @click.stop="starredEmail" src="../../../../svg/star.svg" :class="{yellowed: email.message.isStarred}"/>
+            <h2>{{email.from.name}}</h2>
             <div class="massage-content">
                 <div class="message-container">
                     <span :class="{bold: !email.message.isRead}">{{email.message.subject}}</span> 
@@ -16,8 +16,14 @@ export default {
             <img @click.stop='deleteEmail' src='../../../../svg/trash-can.svg' alt="Delete mail"/>
             <img @click.stop='changeReadorUnread' src='../../../../svg/message.svg'/>
             </div>
-            </div>
-        </section> -->
-    </section>
-    `
+            </div> -->
+        </section>
+    `,
+
+    props:['email'],
+    data() {
+        return {
+
+        }
+    }
 }

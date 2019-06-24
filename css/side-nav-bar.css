@@ -24,7 +24,7 @@
 
 .container > :first-child {
     height: -webkit-fill-available;
-    background-color:#040729;
+    background-color:rgba(190, 182, 182, 0.376);
 
 }
 
@@ -42,7 +42,7 @@
 .sidenav-bar a {
     display: flow-root;
     text-decoration: none;
-    color: azure;
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
