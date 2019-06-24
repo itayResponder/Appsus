@@ -1,26 +1,4 @@
-/* .sidenav-bar {
-    display: flex;
-}
 
-.sidenav-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(51, 51, 51, 0.829);
-}
-
-.sidenav-bar li a:hover {
-    transition: 0.3s;
-    background-color: #111;
-}
-
-.sidenav-bar li a {
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-} */
 
 .container > :first-child {
     height: -webkit-fill-available;
@@ -28,7 +6,8 @@
 
 }
 
-.btn-compose {
+.email-btn.btn-compose {
+    margin: -13px;
     position: absolute;
     box-shadow: 0 0 4px 0px black;
     left: 40px;
@@ -41,14 +20,17 @@
 
 .sidenav-bar li a:hover {
     transition: 0.3s;
+    box-shadow: 0 0 7px 1px black;
     background-color: #858585;
 }
 .sidenav-bar a {
     display: flow-root;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: black;
     font-weight: bold;
-    width: 70px;
+    width: 170px;
+    height: 40px;
+    padding-top: 15px;
     
 }
 

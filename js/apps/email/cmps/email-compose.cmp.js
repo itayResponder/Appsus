@@ -2,6 +2,7 @@
 // • Use the service to add email to the list
 // • Yes, we are only supporting selfi-emails for now (-:
 import {emailService} from '../services/email.service.js';
+import { EventBus, EMAIL_READ } from '../../../event-bus.js';
 
 export default {
 

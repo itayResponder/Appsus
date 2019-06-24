@@ -25,14 +25,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 button.email-btn {
-    margin: -13px;
+    margin: 10px;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    padding: 12px 24px;
+    padding: 10px 10px;
     border: 1px solid #2b2b2b;
     border-radius: 8px;
-    background: #2d2b2b;;
+    background: #9b9999;
     font: normal normal bold 20px "IbmplFont";
     color: #ffffff;
     text-decoration: none;
@@ -64,7 +64,6 @@ button.email-btn:before{
 }
 
 .note-start textarea {
-    /* display: block; */
     opacity: 0.8;
     top: 10px;
     right: 10px;

@@ -13,6 +13,7 @@
 .nav-bar li a:hover {
     transition: 0.3s;
     background-color: #858585;
+    box-shadow: 0 0 7px 1px black;
 }
 
 .nav-bar li a {

@@ -47,6 +47,7 @@ function deleteEmail(id) {
     const emailIdx = emailDB.findIndex(email => email.id === id)
     emailDB.splice(emailIdx, 1)
     storageService.store(EMAIL_KEY, emailDB)
+    EventBus.$emit(EMAIL_READ);
 }
 
 function changeReadStatus(id) {
@@ -89,6 +90,7 @@ function addEmail(name, subject, desc, date) {
     }
     emailDB.unshift(email);
     storageService.store(EMAIL_KEY, emailDB);
+    EventBus.$emit(EMAIL_READ);
 }
 
 function getEmailData() {
