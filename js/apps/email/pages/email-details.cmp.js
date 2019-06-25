@@ -30,7 +30,6 @@ export default {
         emailService.getById(emailId)
             .then(email => {
                 this.email = email
-                console.log(this.email);
             })
     },
 }
