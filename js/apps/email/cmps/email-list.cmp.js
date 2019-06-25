@@ -7,7 +7,6 @@ import emailTrash from './email-trash.cmp.js';
 export default {
     template: `
     <section class="emails-list">
-        <h1>EMAIL_LIST</h1>
             <section>
                 <section v-if="$route.path === '/miss-email/inbox'">
                     <email-inbox v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-inbox>
