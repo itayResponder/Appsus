@@ -21,21 +21,8 @@ export default {
             <button class="email-btn btn-compose" @click="isActivated">Compose</button>
             <div class="container">
                 <email-side-nav></email-side-nav>
-                <section class="emails-list">
-                    <section v-if="$route.path === '/miss-email/inbox'">
-                        <email-inbox v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-inbox>
-                    </section>
-                    <section v-if="$route.path === '/miss-email/starred'">
-                        <email-starred v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-starred>
-                    </section>
-                    <section v-if="$route.path === '/miss-email/sent'">
-                        <email-sent v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-sent>
-                    </section>
-                    <section v-if="$route.path === '/miss-email/trash'">
-                        <email-trash v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-trash>
-                    </section>
-                </section>
-                <!-- <router-view :emails="emailsForDisplay"></router-view> -->
+                <email-list :emails="emailsForDisplay"></email-list>
+                <!-- <router-view></router-view> -->
             </div>
             <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
         </section>

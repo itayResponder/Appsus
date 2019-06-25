@@ -1,4 +1,3 @@
-import emailList from './email-list.cmp.js';
 import {emailService} from '../services/email.service.js'
 
 export default {
@@ -20,7 +19,7 @@ export default {
         </section>
     `,
 
-    props:['email'],
+    props:['email','emails'],
     data() {
         return {
             date: moment(this.email.date).format('LLL')
@@ -43,7 +42,6 @@ export default {
         },
     },
     components: {
-        emailList,
         emailService
     }
 }

@@ -24,8 +24,7 @@ export default {
         </section>
         `,
 
-    props: ['email'],
-
+    props: ['email','emails'],
     data() {
         return {
             date: moment(this.email.date).format('LLL')
