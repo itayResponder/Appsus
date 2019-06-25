@@ -5,9 +5,9 @@ export default {
     template: `
         <div class="settings">
             <div>
-                <img @click.stop="noteTxt" src="../../../../svg/text.svg"/>
-                <img @click.stop="noteImage" src="../../../../svg/image.svg"/>
-                <img @click.stop="noteTodo" src="../../../../svg/todo.svg"/>
+                <img @click.stop="noteTxt" src="svg/text.svg"/>
+                <img @click.stop="noteImage" src="svg/image.svg"/>
+                <img @click.stop="noteTodo" src="svg/todo.svg"/>
             </div>
         </div>
         `,
