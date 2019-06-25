@@ -3,12 +3,11 @@
 // o Renders the subject
 // o Gives visual indication for read/unread (i.e.: bold/unbold ; closed or
 // open envelop) 
-import { emailService } from '../../email/services/email.service.js'
-
+import { emailService } from '../services/email.service.js'
 
 export default {
     template: `
-        <section class="email-preview-container" @click.stop = 'goToMail'>
+        <section class="email-preview-container" @click.stop = "goToMail" v-show="!email.message.isTrashed">
             <img @click.stop="starredEmail" src="svg/star.svg" :class="{yellowed: email.message.isStarred}"/>
             <h2>{{email.from.name}}</h2>
             <div class="massage-content">

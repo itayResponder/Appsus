@@ -11,6 +11,7 @@ import emailDetails from '../pages/email-details.cmp.js';
 import emailStarred from '../cmps/email-starred.cmp.js';
 import emailSent from '../cmps/email-sent.cmp.js';
 import emailTrash from '../cmps/email-trash.cmp.js';
+import emailInbox from '../cmps/email-inbox.cmp.js';
 
 export default {
     template: `
@@ -20,22 +21,21 @@ export default {
             <button class="email-btn btn-compose" @click="isActivated">Compose</button>
             <div class="container">
                 <email-side-nav></email-side-nav>
-                <router-view :emails="emailsForDisplay"></router-view>
-                <section v-if="$route.path === '/miss-email/starred'" class="emails-list">
-                    <section>
+                <section class="emails-list">
+                    <section v-if="$route.path === '/miss-email/inbox'">
+                        <email-inbox v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-inbox>
+                    </section>
+                    <section v-if="$route.path === '/miss-email/starred'">
                         <email-starred v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-starred>
                     </section>
-                </section>
-                <section v-if="$route.path === '/miss-email/sent'" class="emails-list">
-                    <section>
+                    <section v-if="$route.path === '/miss-email/sent'">
                         <email-sent v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-sent>
                     </section>
-                </section>
-                <section v-if="$route.path === '/miss-email/trash'" class="emails-list">
-                    <section>
+                    <section v-if="$route.path === '/miss-email/trash'">
                         <email-trash v-for="currentEmail,idx in emails" :key="idx" :email="currentEmail"></email-trash>
                     </section>
                 </section>
+                <!-- <router-view :emails="emailsForDisplay"></router-view> -->
             </div>
             <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
         </section>
@@ -45,7 +45,6 @@ export default {
             emails: '',
             filter: null,
             isShown: false,
-            isStarred: false
         }
     },
 
@@ -84,15 +83,14 @@ export default {
         emailDetails,
         emailStarred,
         emailSent,
-        emailTrash
+        emailTrash,
+        emailInbox
     },
 
     methods: {
-
         setFilter(filter) {
             this.filter = filter;
         },
-
         isActivated() {
             this.isShown = !this.isShown;
         }

@@ -14,6 +14,7 @@ export const emailService = {
     sortEmails,
     addEmail,
     changeStarStatus,
+    deleteEmailFromTrash
 }
 
 
@@ -46,8 +47,16 @@ function emailRead(id) {
 function deleteEmail(id) {
     const email = emailDB.find(email => email.id === id)
     email.message.isTrashed = true;
-    storageService.store(EMAIL_KEY, emailDB)
+    email.message.isRead = true;
+    email.message.isStarred = false;
+    storageService.store(EMAIL_KEY, emailDB);
     EventBus.$emit(EMAIL_READ);
+}
+
+function deleteEmailFromTrash(id) {
+    const emailIdx = emailDB.findIndex(email => email.id === id)
+    emailDB.splice(1,emailIdx);
+    storageService.store(EMAIL_KEY, emailDB);
 }
 
 function changeReadStatus(id) {

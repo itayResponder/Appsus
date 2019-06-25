@@ -13,7 +13,7 @@ export default {
                 </div>
                 <div class="right-side">
                     <span>{{date}}</span>
-                    <!-- <img @click.stop='deleteEmail' src='svg/trash-can.svg' alt="Delete mail"/> -->
+                    <img @click.stop='deleteEmailFromTrash' src='svg/trash-can.svg' alt="Delete mail"/>
                     <img @click.stop='changeReadorUnread' src='svg/message.svg'/>
                 </div>
             </div>
@@ -32,9 +32,9 @@ export default {
             this.$router.push({ path: '/miss-email/' + this.email.id })
             emailService.emailRead(this.email.id)
         },
-        // deleteEmail() {
-        //     emailService.deleteEmail(this.email.id)
-        // },
+        deleteEmailFromTrash() {
+            emailService.deleteEmailFromTrash(this.email.id)
+        },
         changeReadorUnread() {
             emailService.changeReadStatus(this.email.id)
         },
