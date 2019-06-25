@@ -2,7 +2,7 @@
 .note-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .note-preview:hover {
@@ -17,7 +17,7 @@
     cursor: pointer;
     padding: 20px;
     margin: 25px;
-    width: 20vw;
+    width: 200px;
     border-radius: 4px;
 
 }
