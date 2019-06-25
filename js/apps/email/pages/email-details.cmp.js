@@ -11,12 +11,12 @@ export default {
     template: `
     <section class="email-details" v-if="email">
         <div class="sender">
+            <p>From: {{email.from.name}}</p>
+            <p>Mail: {{email.from.email}}</p>
             <img :src="email.from.thumbnail"/>
-            <p>{{email.from.name}}</p>
-            <p><{{email.from.email}}></p>
         </div>
-        <h1>{{email.message.subject}}</h1>
-        <p>{{email.message.desc}}</p>
+        <h1>Subject: {{email.message.subject}}</h1>
+        <p>Description: {{email.message.desc}}</p>
     </section>
     `,
     data() {
@@ -30,6 +30,7 @@ export default {
         emailService.getById(emailId)
             .then(email => {
                 this.email = email
+                console.log(this.email);
             })
     },
 }

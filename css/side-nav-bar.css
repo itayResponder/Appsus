@@ -3,6 +3,7 @@
 .container > :first-child {
     height: -webkit-fill-available;
     background-color:white;
+    box-shadow: 0 0 17px 0px black;
 }
 
 .email-btn.btn-compose {

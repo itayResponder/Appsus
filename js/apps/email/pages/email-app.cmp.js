@@ -8,10 +8,6 @@ import emailSideNav from '../cmps/email-side-navbar.cmp.js';
 import emailCompose from '../cmps/email-compose.cmp.js';
 import emailSort from '../cmps/email.sort.js'
 import emailDetails from '../pages/email-details.cmp.js';
-import emailStarred from '../cmps/email-starred.cmp.js';
-import emailSent from '../cmps/email-sent.cmp.js';
-import emailTrash from '../cmps/email-trash.cmp.js';
-import emailInbox from '../cmps/email-inbox.cmp.js';
 
 export default {
     template: `
@@ -21,8 +17,10 @@ export default {
             <button class="email-btn btn-compose" @click="isActivated">Compose</button>
             <div class="container">
                 <email-side-nav></email-side-nav>
-                <email-list :emails="emailsForDisplay"></email-list>
-                <!-- <router-view></router-view> -->
+                <email-list v-if="$route.path === '/miss-email/inbox' || 
+                $route.path === '/miss-email/starred' || $route.path === '/miss-email/sent'
+                || $route.path === '/miss-email/trash'" :emails="emailsForDisplay"></email-list>
+                <email-details v-else></email-details>
             </div>
             <email-compose @send-clicked="isActivated" :isShown="this.isShown"></email-compose>
         </section>
@@ -36,10 +34,9 @@ export default {
     },
 
     created() {
-        if (this.$route.path === '/miss-email') this.$router.push({ path: '/miss-email/inbox' });
         emailService.query()
             .then(emails => {
-                this.emails = emails
+                this.emails = emails;
             })
     },
 
@@ -47,15 +44,13 @@ export default {
         emailsForDisplay() {
             if (!this.filter) return this.emails
             return this.emails.filter(email => {
-
                 let currFilter = this.filter.isRead
                 if (currFilter === 'true') currFilter = true
                 else if (currFilter === 'false') currFilter = false
                 if (currFilter === 'all') currFilter = email.message.isRead
-
-                return (email.message.subject.includes(this.filter.txt) ||
-                    email.message.desc.includes(this.filter.txt) ||
-                    email.from.name.includes(this.filter.txt)) &&
+                return (email.message.subject.toLowerCase().includes(this.filter.txt) ||
+                    email.message.desc.toLowerCase().includes(this.filter.txt) ||
+                    email.from.name.toLowerCase().includes(this.filter.txt)) &&
                     email.message.isRead === currFilter
             })
         }
@@ -67,11 +62,7 @@ export default {
         emailCompose,
         emailFilter,
         emailSort,
-        emailDetails,
-        emailStarred,
-        emailSent,
-        emailTrash,
-        emailInbox
+        emailDetails
     },
 
     methods: {

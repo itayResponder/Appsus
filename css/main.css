@@ -8,6 +8,7 @@
 @import url("./note/note-preview.css");
 @import url("./note/note-settings.css");
 @import url("./note/notes-app.css");
+@import url("./email-details.css");
 
 @font-face {
     font-family: IbmplFont;
