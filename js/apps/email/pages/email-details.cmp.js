@@ -12,9 +12,9 @@ export default {
     <section class="email-details" v-if="email">
         <div class="sender">
             <p>From: {{email.from.name}}</p>
-            <p>Mail: {{email.from.email}}</p>
             <img :src="email.from.thumbnail"/>
         </div>
+        <p>Mail: {{email.from.email}}</p>
         <h1>Subject: {{email.message.subject}}</h1>
         <p>Description: {{email.message.desc}}</p>
     </section>
