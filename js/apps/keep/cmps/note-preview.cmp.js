@@ -11,16 +11,16 @@ export default {
             <h2>{{note.title}}</h2>
             <p>{{note.text}}</p>
             <div class="buttons">
-                <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
-                <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
+                <img @click.stop="changeComponent" class="svg" src="svg/edit.svg"/>
+                <img @click.stop="deleteNote" class="svg" src="svg/trash-can.svg"/>
             </div>
         </div>
         <div class="note-preview-type" v-if="note.type === 'IMAGE' && !currentComponent">
             <h2>{{note.title}}</h2>
             <img class="note-img" :src="this.note.url" />
             <div class="buttons">
-                <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
-                <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
+                <img @click.stop="changeComponent" class="svg" src="svg/edit.svg"/>
+                <img @click.stop="deleteNote" class="svg" src="svg/trash-can.svg"/>
             </div>
         </div>
         <div class="note-preview-type" v-if="note.type === 'TODO' && !currentComponent">
@@ -34,8 +34,8 @@ export default {
             </li>
         </ul>
         <div class="buttons">
-            <img @click.stop="changeComponent" class="svg" src="../../../../svg/edit.svg"/>
-            <img @click.stop="deleteNote" class="svg" src="../../../../svg/trash-can.svg"/>
+            <img @click.stop="changeComponent" class="svg" src="svg/edit.svg"/>
+            <img @click.stop="deleteNote" class="svg" src="svg/trash-can.svg"/>
         </div>
         </div>
     </section>
